@@ -41,3 +41,26 @@ SELECT City, Population From North_american_cities WHERE Country = 'Mexico' ORDE
 SELECT City, Population From North_american_cities WHERE Country = 'United States' ORDER BY Population DESC LIMIT 2 OFFSET 2;
 
 
+#QUERIES WITH EXPRESSIONS
+#List All movies and their combined sales in millions of dollars
+SELECT Title, (Domestic_sales + International_sales) / 1000000 As Gross_sales 
+FROM Movies AS m LEFT JOIN Boxoffice AS b 
+	ON m.Id = b.Movie_id;
+    
+#Movies and their ratings in Years
+SELECT Title, (Rating * 10)  As Percentage_sales 
+		FROM Movies AS m JOIN Boxoffice AS b
+        ON m.Id = b.Movie_id;
+
+#Movies that were released on even Number years 
+SELECT Title, Year1 FROM Movies WHERE Year1 % 2 = 0;
+
+##GROUP BY (AGGREGATE FUNCTIONS)
+#Longest time that an employee has been in the studio
+SELECT MAX(Years_employed) as max_years_served FROM Employees ;
+
+#Average Numbre of Years for each Role
+SELECT DISTINCT AVG(Years_employed) as AVG_emp_period, Role FROM Employees GROUP BY ROLE;
+
+#Total Number of Employee years worked in each building
+SELECT Building, SUM(years_employed) FROM employees GROUP BY building; 

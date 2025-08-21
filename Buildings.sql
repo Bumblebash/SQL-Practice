@@ -54,6 +54,13 @@ VALUES ('Artist', 'Tylar S.', '2w', 2),
 ('Manager', 'Shirlee M.', '1e', 3),
 ('Manger', 'Daria O.', '2w', 6);
 
+#INSERT MORRE VALUES 
+INSERT INTO Employees (Role, Name, Building, Years_employed) 
+		VALUES
+        ('Engineer', 'Yancy I.', '', 0 ),
+        ('Artist', 'Oliver P.', '', 0);
+        
+
 #List of buildings that have employees
 SELECT DISTINCT building From Employees;
 
@@ -83,7 +90,13 @@ SELECT DISTINCT Building_name, Role
 	FROM Buildings LEFT JOIN Employees
     ON building_name = Building;
 
+# Name, role of all employees who have no building
+SELECT role, Name FROM Employees WHERE Building  IS NULL OR Building ='';
 
+#Buildings with no employees
+SELECT Building_name FROM Buildings LEFT JOIN Employees 
+	ON Buildings.Building_name = Employees.Building
+    WHERE role IS NULL OR role ='';
 
 
 
