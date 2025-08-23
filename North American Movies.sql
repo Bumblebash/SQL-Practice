@@ -59,8 +59,41 @@ SELECT Title, Year1 FROM Movies WHERE Year1 % 2 = 0;
 #Longest time that an employee has been in the studio
 SELECT MAX(Years_employed) as max_years_served FROM Employees ;
 
-#Average Numbre of Years for each Role
-SELECT DISTINCT AVG(Years_employed) as AVG_emp_period, Role FROM Employees GROUP BY ROLE;
+#Average Number of Years for each Role
+SELECT avg(Years_employed) as AVG_emp_period, Role FROM Employees GROUP BY Role;
 
 #Total Number of Employee years worked in each building
 SELECT Building, SUM(years_employed) FROM employees GROUP BY building; 
+
+
+#CLEARING SOME DATA ERRORS IN THE TABLE
+UPDATE Employees
+SET Role = 'Engineer' WHERE Name = 'Malcom S.';
+UPDATE Employees
+SET Role = 'Manager' WHERE Name = 'Daria O.';
+SELECT * FROM Employees;
+
+#Find the number of Artists in the studio without a having clause
+SELECT COUNT(Name) As Total_artists , Role  FROM Employees 
+	   WHERE Role = 'Artist'
+	GROUP BY (Role) 
+ ;
+ 
+ #Find the number of Employees of each role in the Studio
+ SELECT COUNT(Name) AS Total_employees, Role FROM Employees 
+		GROUP BY (Role);
+        
+#OPTION2 FOR COUNT
+SELECT role, COUNT(*)
+	FROM Employees GROUP BY Role;
+    
+    
+#Total Number of Years Employed by all Engineers  
+SELECT SUM(Years_employed) AS Total_years_by_Engineers , Role FROM Employees 
+	WHERE Role ='Engineer'
+    GROUP BY (Role);
+
+
+
+
+
