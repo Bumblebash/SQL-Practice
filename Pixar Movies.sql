@@ -104,3 +104,34 @@ ON boxoffice.Movie_id = movies.id WHERE International_sales > Domestic_sales;
 
 #List all movies by their rating in descending order
 SELECT Title, Rating FROM boxoffice INNER JOIN movies ON boxoffice.Movie_id = movies.id ORDER BY Rating desc;
+
+Select * From Movies;
+#NUmber of Movies Directed By Each Director
+SELECT COUNT(Title) As Total_Movies_Directed, Director FROM Movies 
+	GROUP BY Director;
+
+#CLEARING SOME ERRORS IN THE DATA
+UPDATE  Movies SET 
+Director = 'John Lasseter' WHERE id = 12;
+
+
+#TOTAL domestic and International Sales that can attributed to each director
+SELECT   Director, SUM(Domestic_sales + International_sales) AS  Gross_sales FROM  Movies 
+	JOIN Boxoffice
+    ON Movies.Id = Boxoffice.Movie_id
+ GROUP BY Director;
+ #ORDER BY Gross_sales;
+ 
+ Select * From Movies;
+ #ADDING MORE VALUES IN THE TABLE
+ INSERT INTO  Movies (id, Title, Director, Year1, Length_minutes)
+   VALUES
+	(15, 'Toy Story 4', 'John lasseter', 2025, 120) 
+ ;
+ 
+ INSERT INTO Boxoffice (Movie_id, Rating, Domestic_sales, International_sales)
+	VALUES (15, 8.7, 340000000, 270000000);
+ 
+ DELETE  FROM Movies 
+	WHERE Year1 < 2005;
+ 
