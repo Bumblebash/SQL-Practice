@@ -2,7 +2,7 @@
 - Collection of SQL practice queries and exercises.
 - SQL scripts for Data Analytics and data Manipulation
 
-#  Customer Churn, With CTE (28/08/2025)
+# Customer Churn, With CTE (28/08/2025)
 - Step 1. last_month CTE
 
 Grabs all unique users active in July (MONTH(activity_date) = 7).
