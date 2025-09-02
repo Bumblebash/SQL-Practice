@@ -1,0 +1,14 @@
+SHOW databases;
+USE banking_case2;
+SHOW schemas;
+SHOW TABLES;
+DESC  CUSTOMERS;
+SELECT * FROM CUSTOMERS;
+
+SHOW DATABASES;
+USE practice;
+
+SHOW TABLES;
+SELECT *FROM product_spend;
+
+
