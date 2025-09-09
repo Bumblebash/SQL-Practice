@@ -1,8 +1,8 @@
-﻿category,product,user_id,spend,transaction_date
-appliance,washing machine,123,219.8,03/02/2022 11:00:00
-electronics,vacuum,178,152,04/05/2022 10:00:00
-electronics,wireless headset,156,249.9,07/08/2022 10:00:00
-electronics,vacuum,145,189,07/15/2022 10:00:00
-electronics,computer mouse,195,45,07/01/2022 11:00:00
-appliance,refrigerator,165,246,12/26/2021 12:00:00
-appliance,refrigerator,123,299.99,03/02/2022 11:00:00
+category	product	user_id	spend	transaction_date
+appliance	washing machine	123	219.8	03/02/2022 11:00:00
+electronics	vacuum	178	152	04/05/2022 10:00:00
+electronics	wireless headset	156	249.9	07/08/2022 10:00:00
+electronics	vacuum	145	189	07/15/2022 10:00:00
+electronics	computer mouse	195	45	07/01/2022 11:00:00
+appliance	refrigerator	165	246	12/26/2021 12:00:00
+appliance	refrigerator	123	299.99	03/02/2022 11:00:00
