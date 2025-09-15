@@ -22,6 +22,10 @@ ALTER TABLE users ALTER COLUMN  signup_date DATETIME2(0) NOT NULL;
 ---that have the highest number of completed trade orders listed in descending order. 
 ---Output the city name and the corresponding number of completed trade orders.
 
+/** Creating a stored procedure**/
+create proc uspReturnbesttradingcities
+ as
+
 SELECT Top 3  city, COUNT(*) As highest_trades  FROM users 
 		JOIN trades 
 		ON users.user_id = trades.user_id 
@@ -36,5 +40,9 @@ SELECT COUNT(DISTINCT user_id) As users FROM trades;
 
 
 
+
+
+-- Executing a Stored Procedure to retrieve results
+exec  uspReturnbesttradingcities
 
 
