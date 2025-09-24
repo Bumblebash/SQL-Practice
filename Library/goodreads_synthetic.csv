@@ -1,0 +1,50 @@
+book_id,book_title,author,genre,year_released,country,publication,book_rating,awards_won,number_of_reviews,price
+1001,A Gentleman in Moscow,Amor Towles,Historical Fiction,2016,United States,Viking,4.4,10,10200,16.8
+1002,Ace the Data Science Interview,"Kevin Huo, Nick Singh",Non-Fiction,2021,United States,Ace the Data Science Interview,4.5,8,850,31.0
+1004,Atomic Habits,James Clear,Self-Help,2018,United States,Avery,4.8,12,22000,21.5
+1005,Homo Deus,George Orwell,Non-Fiction,1964,United Kingdom,HarperCollins,4.7,1,11908,45.61
+1006,Lessons in Chemistry,Michelle Obama,Philosophy,2021,India,Simon & Schuster,4.7,0,32671,47.32
+1007,Can’t Hurt Me,Frank Herbert,Science Fiction,1979,South Africa,Bloomsbury,3.9,6,32301,11.18
+1008,Project Hail Mary,Jane Austen,Thriller,1978,Australia,Penguin,3.4,7,27465,17.07
+1009,Dune,J.R.R. Tolkien,Classics,2003,Canada,Simon & Schuster,4.9,3,2796,27.39
+1010,Project Hail Mary,Cal Newport,Classics,2018,United Kingdom,Penguin,3.6,11,24373,10.91
+1011,12 Rules for Life,David Epstein,Thriller,1977,Canada,Hachette,3.6,11,10870,36.31
+1012,Elon Musk,George Orwell,Self-Help,1963,Canada,Random House,4.4,8,32497,23.98
+1013,The Silent Patient,Matt Haig,Classics,2009,South Africa,Penguin,3.7,12,20853,24.53
+1014,The Catcher in the Rye,David Epstein,Science Fiction,1951,South Africa,Knopf,4.7,9,41435,29.53
+1015,Sapiens,David Epstein,Science Fiction,2010,United States,Crown,4.9,8,33167,19.94
+1016,The Vanishing Half,Simon Sinek,Science Fiction,2023,United Kingdom,HarperCollins,4.5,7,6037,30.08
+1017,Brave New World,Charlotte Brontë,Self-Help,1950,Australia,Bloomsbury,3.8,4,33489,44.36
+1018,Quiet,Susan Cain,Thriller,1994,Australia,Simon & Schuster,3.2,6,3747,38.77
+1019,Sapiens,Yuval Noah Harari,Philosophy,1984,United States,Macmillan,4.8,7,11430,13.27
+1020,Born a Crime,Ray Bradbury,Science Fiction,1980,United Kingdom,HarperCollins,3.3,3,16837,30.18
+1021,Range,Marcus Aurelius,Historical Fiction,2013,India,Macmillan,3.7,3,42123,10.31
+1022,Sapiens,George Orwell,Fantasy,2002,Australia,Random House,4.9,6,33368,49.14
+1023,Educated,J.D. Salinger,Science Fiction,2018,South Africa,Crown,3.8,2,18898,30.45
+1024,The Song of Achilles,Bessel van der Kolk,Philosophy,1967,United States,Macmillan,4.2,11,49143,37.12
+1025,Meditations,Matt Haig,Romance,1967,Australia,Hachette,3.6,2,9468,39.26
+1026,Steve Jobs,Delia Owens,Historical Fiction,1950,United Kingdom,Bloomsbury,4.1,3,6397,14.28
+1027,The Psychology of Money,Simon Sinek,Thriller,1976,Canada,Random House,3.1,3,11172,24.84
+1028,The Psychology of Money,Matt Haig,Thriller,1965,India,Vintage,4.0,10,36879,25.85
+1029,Meditations,Michelle Obama,Fantasy,1968,India,HarperCollins,4.3,12,6482,47.05
+1030,The Psychology of Money,David Epstein,Non-Fiction,2023,Canada,HarperCollins,4.4,14,39740,38.46
+1031,Brave New World,Matt Haig,Historical Fiction,1993,Australia,Knopf,4.4,14,3342,37.68
+1032,Pride and Prejudice,Brit Bennett,Philosophy,2010,United Kingdom,Hachette,4.3,13,29740,23.94
+1033,Invisible Women,Alex Michaelides,Biography,2015,South Africa,Bloomsbury,3.1,7,35517,38.06
+1034,The Great Gatsby,Caroline Criado Perez,Science Fiction,1960,Canada,Vintage,4.5,9,8133,41.69
+1035,1984,Morgan Housel,Non-Fiction,2001,South Africa,Macmillan,4.2,12,22263,35.64
+1036,Normal People,Jordan Peterson,Romance,2022,South Africa,Crown,4.9,11,3027,37.21
+1037,Invisible Women,Emily Brontë,Non-Fiction,2000,India,Penguin,3.2,7,31574,12.92
+1038,Homo Deus,Marcus Aurelius,Thriller,1959,Canada,Penguin,4.6,9,4358,19.56
+1039,Deep Work,Jane Austen,Fantasy,1992,Canada,Crown,4.3,12,1983,37.93
+1040,Meditations,J.R.R. Tolkien,Science Fiction,1982,Australia,Penguin,4.7,13,44876,31.76
+1041,Jane Eyre,Marcus Aurelius,Historical Fiction,1952,Canada,Bloomsbury,4.7,6,1271,13.14
+1042,Educated,Delia Owens,Self-Help,1991,United Kingdom,Hachette,3.7,11,48954,11.28
+1043,The Great Gatsby,Madeline Miller,Philosophy,1978,India,Crown,3.8,13,19253,29.84
+1044,The Midnight Library,Jordan Peterson,Classics,1990,Canada,Vintage,3.8,2,8853,24.4
+1045,Jane Eyre,Charlotte Brontë,Historical Fiction,2014,Canada,Knopf,3.9,13,32953,39.66
+1046,Educated,Morgan Housel,Science Fiction,1999,South Africa,Knopf,4.8,6,40146,37.02
+1047,Man’s Search for Meaning,Alex Michaelides,Romance,2004,Canada,Penguin,3.8,9,15559,14.75
+1048,Born a Crime,Ray Bradbury,Historical Fiction,1960,United States,Hachette,4.4,12,39013,11.35
+1049,Born a Crime,Cal Newport,Self-Help,1966,Australia,Knopf,4.8,9,9209,5.85
+1050,Deep Work,Harper Lee,Self-Help,1999,Australia,HarperCollins,3.3,11,39372,46.3

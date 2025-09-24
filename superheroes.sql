@@ -14,16 +14,16 @@ alter table superheroes alter column avg_comments int;
 /**Assigning popularity category using CASE statement
       And storing it in the userstoredprocedure**/
 Create proc uspReturnMostpopularActors
-AS 
-SELECT 
-    character,
-	superhero_alias,
-	platform,
-	CASE 
-		WHEN followers >= 500000 THEN 'Popular'
+	AS 
+	SELECT 
+		character,
+		superhero_alias,
+		platform,
+		CASE 
+			WHEN followers >= 500000 THEN 'Popular'
 
-	END AS popularity_category
-FROM superheroes;
+		END AS popularity_category
+	FROM superheroes;
 
 
 /** Executing Stored procedure to retriece the most popular Actors **/
@@ -100,22 +100,57 @@ WHERE
 
 
 
+/** The COUNT() aggregate function within a CASE statement is used to count occurrences based on various conditions within the dataset. If you need a refresher, check out our SQL Aggregate Functions tutorial with COUNT(), SUM() and AVG()!
+
+Assume we're given the following conditions:
+
+Assign to popular_actor_count if number of actors with followers greater than or equal to 500,000 followers.
+Assign to less_popular_actor_count if number of actors with followers less than 500,000 followers.**/
+
+--Perfoming Count aggregation with Case Clause 
+SELECT	
+	platform,
+	COUNT(CASE WHEN  followers >=  500000 THEN 1 ELSE NULL END)
+		AS popular_actor_count,
+	COUNT (CASE WHEN followers < 500000 THEN 1 ELSE NULL END)
+		AS less_popular_actor_count
+	FROM superheroes
+	GROUP BY platform;
 
 
-	SELECT
-  platform,
-  COUNT(CASE 
-    WHEN followers >= 500000 THEN 1
-    ELSE NULL
-  END) AS popular_actor_count,
-  COUNT(CASE 
-    WHEN followers < 500000 THEN 1
-    ELSE NULL
-  END) AS less_popular_actor_count
+
+
+/** Adding Results Using SQL SUM in CASE statement **/
+--Soution 2 for perfoming SUM aggregation with Case Clause
+
+
+--Question Number 3
+
+/**Adding up the followers of actors based on their engagement rates grouped by platform:
+If the engagement rate is 8.0 or higher, add the followers in the "high_engagement_followers_sum".
+Otherwise, add them in the "low_engagement_followers_sum". **/
+
+SELECT *from superheroes;
+
+SELECT platform, 
+SUM(CASE WHEN engagement_rate >= 8.0 THEN followers ELSE 0 END)
+		AS Good_Engagement,
+SUM(CASE WHEN engagement_rate < 8.0 THEN followers ELSE 0 END)
+		AS Average_Engagement
 FROM superheroes
 GROUP BY platform;
 
 
+---Second Question (2)
+/** calculating the average number of followers of actors based on their engagement rates.
+If the engagement rate is 8.0 or higher, assign to "high_engagement_followers",
+otherwise, assign to "low_engagement_followers" for each platform.**/
 
-
-
+SELECT platform,
+		AVG( CASE    WHEN engagement_rate > 8.0 THEN followers   END ) AS
+			high_engagement_followers,
+		AVG(CASE WHEN engagement_rate < 8.0 THEN followers  END) AS 
+			low_engagement_followers
+FROM superheroes
+GROUP BY platform
+;
