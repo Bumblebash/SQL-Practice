@@ -57,11 +57,8 @@ ORDER BY total_ordered DESC;
 
 
 
-
-SELECT g.book_id , g.book_title ,
-         COALESCE( SUM(o.quantity),0) AS total_ordered
-FROM goodreads g
-            LEFT  JOIN orders o
-            ON g.book_id = o.book_id
-GROUP BY g.book_id, g.book_title
-ORDER BY total_ordered DESC;
+/**Suppose we want to retrieve all the orders along with their corresponding deliveries information.**/
+SELECT o.order_id, o.book_id, d.delivery_id, d.delivery_status FROM orders o
+       LEFT JOIN deliveries d
+       ON o.order_id = d.order_id;
+ 
