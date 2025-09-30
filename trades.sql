@@ -66,3 +66,8 @@ SELECT  Top 3 city,  COUNT(status) As Total_orders FROM users_table
      WHERE status = 'Completed'
      GROUP BY city
      ORDER BY Total_orders DESC ;
+
+
+     /*SQL INNER JOIN */
+     /*  how many books priced at $20 and above have been ordered, and who the buyers are.*/
+     SELECT 
