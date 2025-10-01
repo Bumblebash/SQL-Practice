@@ -1,4 +1,4 @@
-Use Practice;
+﻿Use Practice;
 
 SELECT * FROM goodreads;
 SELECT * from deliveries;
@@ -58,7 +58,26 @@ ORDER BY total_ordered DESC;
 
 
 /**Suppose we want to retrieve all the orders along with their corresponding deliveries information.**/
-SELECT o.order_id, o.book_id, d.delivery_id, d.delivery_status FROM orders o
+SELECT o.order_id, o.book_id, d.delivery_id, d.delivery_date, d.delivery_status FROM orders o
        LEFT JOIN deliveries d
        ON o.order_id = d.order_id;
- 
+
+/** Flipping the table positions**/
+ SELECT o.order_id, o.book_id, d.delivery_id, d.delivery_date, d.delivery_status FROM deliveries d
+                    LEFT JOIN orders o
+                    ON d.order_id = o.order_id; 
+
+
+
+/**RIGHT JOIN **/
+SELECT o.order_id, o.book_id, d.delivery_id, d.delivery_date, d.delivery_status FROM deliveries d
+                   RIGHT JOIN orders o
+                   ON d.order_id = o.order_id;
+
+
+/** Display all books priced ≥ 20 even if they have no orders (those orders columns will be NULL).**/
+SELECT o.order_id, o.customer_id, g.book_title
+FROM orders o
+RIGHT JOIN goodreads g
+  ON o.book_id = g.book_id
+WHERE g.price >= 20;
