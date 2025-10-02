@@ -5,8 +5,8 @@ SELECT * from deliveries;
 SELECT * FROM orders;
 
 /** Changing Data Types (goodreads) **/ 
-alter table goodreads alter column book_id bigint;
-alter table goodreads alter column year_released INT;
+alter table goodreads alter column book_id INT;
+alter table goodreads alter column year_released DATE;
 alter table goodreads alter column book_rating  decimal(18,2);
 alter table goodreads alter column awards_won  smallint;
 alter table goodreads alter column number_of_reviews  INT;
@@ -22,8 +22,9 @@ alter table deliveries alter column delivery_status nvarchar(50);
 
 /**Changing Data types (orders) **/
 alter table orders alter column order_date datetime2;
-
-
+alter table orders alter column order_id  INT;
+alter table orders alter column book_id  INT;
+alter table orders alter column customer_id  INT;
 
    /*SQL INNER JOIN */
      /*  how many books priced at $20 and above have been ordered, and who the buyers are.*/
@@ -81,3 +82,74 @@ FROM orders o
 RIGHT JOIN goodreads g
   ON o.book_id = g.book_id
 WHERE g.price >= 20;
+
+
+
+
+/** SQL Full OUTER JOIN **/
+
+SELECT o.order_id, o.customer_id, o.order_date, o.quantity, 
+       d.delivery_id,  d.delivery_date,  d.delivery_status
+FROM orders o  
+FULL OUTER JOIN deliveries d
+        ON o.order_id = d.order_id
+        ORDER BY  d.delivery_id, o.order_id;
+
+/** INNER JOIN **/
+/** List orders for books priced >= $ 20 **/
+SELECT o.order_id, o.book_id,  g.book_title, g.price FROM orders o
+        INNER JOIN goodreads g
+        ON o.book_id = g.book_id
+        WHERE g.price >= 20
+        ORDER BY g.price DESC;
+        
+
+SELECT 
+  g.book_title, 
+  o.quantity
+FROM goodreads AS g
+INNER JOIN orders AS o 
+  ON g.book_id = o.book_id
+    where o.quantity > 2;
+
+/** Retrieve book titles, their authors, and the order dates for books 
+released after 2015 and ordered in quantities greater than 1.**/
+    SELECT 
+  g.book_title, g.book_id,
+  g.author, 
+  o.order_date, o.quantity
+FROM goodreads AS g
+INNER JOIN orders AS o 
+  ON g.book_id = o.book_id
+    WHERE DATEPART(year, g.year_released) > 2015
+    AND o.quantity > 1;
+
+
+
+/** Retrieve order IDs and their corresponding delivery status 
+where the delivery status is either 'Delivered' or 'Shipped'.**/
+
+/** Joining 3 tables at Once **/
+SELECT o.order_id, d.delivery_status, g.book_title FROM orders o
+ JOIN deliveries d ON  o.order_id = d.order_id
+ JOIN goodreads g ON g.book_id = o.book_id 
+ WHERE d.delivery_status IN ('Delivered', 'Shipped');
+
+ /** Retrieve book titles, their authors, and the order dates for books released after 2015 and ordered 
+ in quantities greater than 1.**/
+ SELECT g.book_title, g.author, o.order_date, o.quantity FROM goodreads g 
+                JOIN orders o ON g.book_id = o.book_id
+                WHERE quantity > 1
+                AND YEAR(g.year_released) > 2015;
+
+
+/**Example 4: Joining all three tables with a condition on book_rating and delivery_status**/
+/*Retrieve the book titles, their average ratings, order dates, 
+and delivery statuses for books with a rating higher than 4.0 that have been delivered.*/
+SELECT g.book_title, g.book_rating , o.order_date, d.delivery_status
+        FROM goodreads g JOIN orders o
+        ON g.book_id = o.book_id
+        JOIN deliveries d 
+        ON o.order_id = d.order_id
+WHERE g.book_rating > 4
+AND d.delivery_status = 'Delivered';
