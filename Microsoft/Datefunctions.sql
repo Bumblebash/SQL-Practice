@@ -2,6 +2,9 @@ USE PRACTICE;
 
 SELECT * FROM messages_table;
 
+/* renaming the table column name */
+EXEC sp_rename 'messages_table.[content]', 'Content', 'COLUMN';
+
 /* renaming A table */
 /*sp stands for stored procedures */
 EXEC sp_rename 'messages', 'messages_table';
@@ -26,3 +29,13 @@ WHERE EXTRACT(YEAR FROM sent_date) = 2022
 AND EXTRACT(MONTH FROM sent_date) = 8
 GROUP BY sender_id
 ORDER BY  Total_messages DESC LIMIT 2;
+
+
+/*Current Date And Time in SQL */
+SELECT 
+	message_id,
+	sent_date,
+	CAST(GETDATE()  AS date) AS [current_date],
+	CAST(GETDATE() AS TIME) AS [current_time],
+	current_timestamp As [current_timestamp]
+FROM messages_table;

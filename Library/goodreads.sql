@@ -153,3 +153,4 @@ SELECT g.book_title, g.book_rating , o.order_date, d.delivery_status
         ON o.order_id = d.order_id
 WHERE g.book_rating > 4
 AND d.delivery_status = 'Delivered';
+
