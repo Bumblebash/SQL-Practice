@@ -39,3 +39,31 @@ SELECT
 	CAST(GETDATE() AS TIME) AS [current_time],
 	current_timestamp As [current_timestamp]
 FROM messages_table;
+
+
+/*  Comparing Dates using Comparison Operators >, < */
+SELECT * FROM messages_table
+		WHERE sent_date >= '2022-08-10 00:00:00';
+
+
+/* Extracting Parts from Dates in SQL */
+
+/* Extracting Year */
+SELECT  message_id, sent_date, YEAR(sent_date) As Part_year 
+  FROM  messages_table;
+
+  /*Extracting Month */
+  SELECT message_id, sent_date, MONTH(sent_date) AS part_month
+		FROM messages_table;
+
+  /*Extracting Day */
+  SELECT message_id, sent_date, DAY(sent_date) AS part_day
+		FROM messages_table;
+
+  /*Extracting  Hour  */
+  SELECT message_id, sent_date, DATEPART(HOUR, sent_date) As part_hour
+			FROM messages_table;
+
+  /*Extracting  Minute  */
+  SELECT  TOP 3 message_id, sent_date, DATEPART(Minute, sent_date) AS Part_minute
+			FROM messages_table;
