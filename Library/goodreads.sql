@@ -21,7 +21,7 @@ alter table deliveries alter column delivery_status nvarchar(50);
 
 
 /**Changing Data types (orders) **/
-alter table orders alter column order_date datetime2;
+alter table orders alter column order_date datetime2(0);
 alter table orders alter column order_id  INT;
 alter table orders alter column book_id  INT;
 alter table orders alter column customer_id  INT;
@@ -153,4 +153,34 @@ SELECT g.book_title, g.book_rating , o.order_date, d.delivery_status
         ON o.order_id = d.order_id
 WHERE g.book_rating > 4
 AND d.delivery_status = 'Delivered';
+
+
+
+/* Example (you want all books priced ≥ $20 and show orders if present):*/
+SELECT g.book_title, SUM(COALESCE(o.quantity,0)) AS qty_ordered 
+ FROM goodreads g
+ LEFT JOIN orders o 
+ ON g.book_id = o.book_id 
+ WHERE g.price >= 20
+ GROUP BY book_title;
+
+ SELECT *FROM orders;
+  SELECT *FROM deliveries;
+
+  /** LEFT JOIN BUT specific on the right table(Filtering the right table)*/
+ SELECT o.book_id, o.order_id, d.delivery_date , d.delivery_status
+ FROM orders o
+ LEFT  JOIN deliveries d
+  ON o.order_id = d.order_id
+   AND d.delivery_status = 'Delivered';
+
+   /*LEFT JOIN becomes INNER JOIN, through filtering with the WHERE clause 
+   to return only Delivered rows **/
+    SELECT o.book_id, o.order_id, d.delivery_date , d.delivery_status
+ FROM orders o
+ LEFT  JOIN deliveries d
+  ON o.order_id = d.order_id
+   WHERE d.delivery_status = 'Delivered';
+
+
 
