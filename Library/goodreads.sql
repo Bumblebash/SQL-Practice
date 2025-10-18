@@ -183,4 +183,39 @@ SELECT g.book_title, SUM(COALESCE(o.quantity,0)) AS qty_ordered
    WHERE d.delivery_status = 'Delivered';
 
 
+/**Anti-Join **/
+--Book that dont have orders yet(Books not yet sold) 
+SELECT g.book_title, g.book_id, o.order_id
+        FROM goodreads g
+        LEFT JOIN orders o
+        ON g.book_id = o.book_id
+        WHERE o.order_id IS NULL ;
+
+SELECT *from orders;
+
+
+/*SEMI JOIN */
+-- customers who ordered any book priced >= 20
+---/*Premium Customers*/
+SELECT DISTINCT o.customer_id, SUM(o.quantity) AS total_books_ordered 
+FROM orders o
+WHERE EXISTS (
+  SELECT 1 FROM goodreads g
+  WHERE  g.book_id = o.book_id 
+  AND  g.price >= 20
+)
+GROUP BY o.customer_id
+;
+
+
+/*Option 2  In case book_id is a unique key*/
+--Recognise Premium Customers
+SELECT o.customer_id, SUM(o.quantity) AS total_books_ordered
+    FROM orders o 
+  JOIN goodreads g
+    ON o.book_id = g.book_id
+    WHERE g.price >= 20
+    GROUP BY o.customer_id
+    ORDER BY total_books_ordered DESC;
+
 
