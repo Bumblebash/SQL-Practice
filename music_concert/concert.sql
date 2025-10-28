@@ -75,3 +75,14 @@ SELECT
 FROM concerts
 WHERE concert_revenue > (SELECT AVG(concert_revenue) FROM concerts)
 GROUP BY genre;
+
+-- Single Value Comparison in WHERE Clauses 
+
+SELECT DISTINCT (artist_name)
+FROM concerts
+	WHERE concert_revenue >(
+	SELECT AVG(concert_revenue) FROM concerts 
+	);
+
+
+

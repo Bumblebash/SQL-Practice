@@ -1,4 +1,5 @@
 USE PRACTICE;
+select * From  concerts;
 ----- Find genres with above-average concert performance
 --Start of CTE 
 WITH genre_revenue_cte AS (
@@ -44,6 +45,7 @@ WHERE  artist_id IN (
 
 
 ---Correlated Sub-Query(Postable)
+--Highest Grossing Concert Per Genre 
 SELECT 
 concert_id,
 	artist_name,
@@ -55,3 +57,137 @@ WHERE concert_revenue =(
 	FROM concerts AS c2
 WHERE c1.genre = c2.genre
 );
+
+
+WITH revenue_per_member AS (
+  SELECT
+    artist_id,
+    artist_name,
+    genre,
+    concert_revenue,
+    number_of_members,
+    -- prevent division-by-zero if number_of_members = 0 or NULL
+    concert_revenue / NULLIF(number_of_members, 0) AS revenue_per_member
+  FROM concerts
+)
+, ranked AS (
+  SELECT
+    artist_id,
+    artist_name,
+    genre,
+    concert_revenue,
+    number_of_members,
+    revenue_per_member,
+    ROW_NUMBER() OVER (PARTITION BY genre ORDER BY revenue_per_member DESC) AS rn
+  FROM revenue_per_member
+)
+SELECT
+  artist_name,
+  concert_revenue,
+  genre,
+  number_of_members,
+  revenue_per_member
+FROM ranked
+WHERE rn = 1
+ORDER BY revenue_per_member DESC;
+
+
+
+WITH ranked_concerts_cte AS (
+  SELECT
+    artist_name,
+    concert_revenue,
+    genre,
+    number_of_members,
+   CAST(concert_revenue / number_of_members AS FLOAT )  AS revenue_per_member,
+    RANK() OVER (
+      PARTITION BY genre
+      ORDER BY (concert_revenue / number_of_members) DESC) AS rn
+  FROM concerts
+)
+
+SELECT
+  artist_name,
+  concert_revenue,
+  genre,
+  number_of_members,
+  revenue_per_member
+FROM ranked_concerts_cte
+WHERE rn = 1
+ORDER BY revenue_per_member DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WITH ranked_concerts_cte AS (
+  SELECT
+    artist_name,
+    concert_revenue,
+    genre,
+    number_of_members,
+    (concert_revenue / number_of_members) AS revenue_per_member,
+    RANK() OVER (
+      PARTITION BY genre
+      ORDER BY (concert_revenue / number_of_members) DESC) AS ranked_concerts
+  FROM concerts
+)
+
+SELECT *
+FROM ranked_concerts_cte;
+
+
+
+
+
+SELECT
+  artist_name,
+  concert_revenue,
+  genre,
+  number_of_members,
+  (concert_revenue / number_of_members) AS revenue_per_member,
+  RANK() OVER (
+    PARTITION BY genre
+    ORDER BY (concert_revenue / number_of_members) DESC) AS ranked_concerts
+FROM concerts;
+
+
+
+
+
+
+
+
+WITH ranked_concerts_cte AS (
+    SELECT 
+    artist_name,
+    concert_revenue,
+    genre,
+    number_of_members,
+    CAST(concert_revenue/ number_of_members AS FLOAT) AS revenue_per_member,
+    RANK()OVER(
+           PARTITION BY genre
+           ORDER BY (concert_revenue/ number_of_members) DESC)
+           AS ranked_artists
+   FROM concerts  
+    )
+
+
+SELECT 
+    artist_name,
+    genre,
+    number_of_members,
+    revenue_per_member
+FROM ranked_concerts_cte
+WHERE ranked_artists = 1
+ORDER BY revenue_per_member DESC;
