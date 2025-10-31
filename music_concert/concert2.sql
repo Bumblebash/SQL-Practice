@@ -92,7 +92,7 @@ WHERE rn = 1
 ORDER BY revenue_per_member DESC;
 
 
-
+--Start of CTE & Window Function
 WITH ranked_concerts_cte AS (
   SELECT
     artist_name,
@@ -102,10 +102,10 @@ WITH ranked_concerts_cte AS (
    CAST(concert_revenue / number_of_members AS FLOAT )  AS revenue_per_member,
     RANK() OVER (
       PARTITION BY genre
-      ORDER BY (concert_revenue / number_of_members) DESC) AS rn
+      ORDER BY (concert_revenue / number_of_members) DESC) AS ranked_artists
   FROM concerts
 )
-
+---End Of CTE & Window Function
 SELECT
   artist_name,
   concert_revenue,
@@ -113,14 +113,23 @@ SELECT
   number_of_members,
   revenue_per_member
 FROM ranked_concerts_cte
-WHERE rn = 1
+WHERE ranked_artists = 1
 ORDER BY revenue_per_member DESC;
 
 
 
+SELECT DISTINCT(artist_name)
+FROM concerts
+WHERE concert_revenue > (
+  SELECT AVG(concert_revenue) FROM concerts);
 
 
 
+
+  SELECT artist_name
+FROM concerts
+WHERE artist_id IN (
+  SELECT artist_id FROM concerts WHERE concert_revenue > 500000);
 
 
 
@@ -176,7 +185,7 @@ WITH ranked_concerts_cte AS (
     number_of_members,
     CAST(concert_revenue/ number_of_members AS FLOAT) AS revenue_per_member,
     RANK()OVER(
-           PARTITION BY genre
+           PARTITION BY genre 
            ORDER BY (concert_revenue/ number_of_members) DESC)
            AS ranked_artists
    FROM concerts  
@@ -191,3 +200,29 @@ SELECT
 FROM ranked_concerts_cte
 WHERE ranked_artists = 1
 ORDER BY revenue_per_member DESC;
+
+SELECT DISTINCT(artist_name) as Total_artists FROM concerts;
+
+
+SELECT 
+  artist_name, 
+  genre, 
+  concert_revenue,
+  (SELECT AVG(concert_revenue) FROM concerts) AS avg_concert_revenue,
+  (SELECT MAX(concert_revenue) FROM concerts) AS max_concert_revenue
+FROM concerts;
+
+
+
+
+
+
+SELECT artist_name,
+genre,
+concert_revenue
+FROM concerts c1
+WHERE concert_revenue = (SELECT MAX(concert_revenue) FROM concerts
+c2 WHERE c1.genre =  c2.genre)
+;
+
+
