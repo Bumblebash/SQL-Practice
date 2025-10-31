@@ -1,0 +1,101 @@
+product_id,product_category,product_name
+1,Analytics,Azure Machine Learning
+2,Compute,Azure VMware Solution
+3,Analytics,Power BI Embedded
+4,Analytics,Azure Data Explorer
+5,Compute,Batch
+6,Analytics,Azure Stream Analytics
+7,Compute,Cloud Services
+8,Compute,Virtual Machines
+9,Analytics,Azure Stream Analytics
+10,Analytics,Azure Synapse
+11,Containers,App Service Environment
+12,Analytics,Azure Databricks
+13,Containers,Azure Red Hat OpenShift
+14,Containers,Azure Service Fabric
+15,Compute,Cloud Services
+16,Containers,Azure Red Hat OpenShift
+17,Compute,Azure Functions
+18,Containers,Container Registry
+19,Analytics,Azure Databricks
+20,Containers,Azure Kubernetes Service
+21,Analytics,Azure Stream Analytics
+22,Containers,Container Apps
+23,Containers,Azure Kubernetes Service
+24,Compute,Azure VMware Solution
+25,Compute,App Service
+26,Containers,Azure Red Hat OpenShift
+27,Compute,Azure VMware Solution
+28,Analytics,Azure Stream Analytics
+29,Containers,Azure Red Hat OpenShift
+30,Containers,App Service Environment
+31,Containers,Azure Red Hat OpenShift
+32,Compute,Batch
+33,Analytics,Azure Stream Analytics
+34,Containers,Container Registry
+35,Compute,App Service
+36,Analytics,Power BI Embedded
+37,Compute,Azure VMware Solution
+38,Compute,Cloud Services
+39,Containers,Azure Kubernetes Service
+40,Containers,Container Registry
+41,Analytics,Azure Machine Learning
+42,Compute,App Service
+43,Containers,Azure Service Fabric
+44,Containers,Azure Service Fabric
+45,Analytics,Azure Data Explorer
+46,Analytics,Azure Databricks
+47,Containers,Azure Service Fabric
+48,Compute,Virtual Machines
+49,Containers,App Service Environment
+50,Containers,Container Apps
+51,Analytics,Azure Synapse
+52,Compute,Azure Functions
+53,Compute,Virtual Machines
+54,Containers,App Service Environment
+55,Containers,Azure Service Fabric
+56,Compute,Virtual Machines
+57,Compute,Azure Functions
+58,Compute,App Service
+59,Compute,Cloud Services
+60,Compute,App Service
+61,Containers,Container Registry
+62,Analytics,Power BI Embedded
+63,Containers,App Service Environment
+64,Compute,Batch
+65,Analytics,Azure Stream Analytics
+66,Analytics,Azure Machine Learning
+67,Containers,Container Registry
+68,Compute,Virtual Machines
+69,Compute,Batch
+70,Containers,Azure Kubernetes Service
+71,Analytics,Azure Stream Analytics
+72,Containers,Container Apps
+73,Containers,Container Registry
+74,Analytics,Azure Data Explorer
+75,Containers,Azure Red Hat OpenShift
+76,Containers,Azure Kubernetes Service
+77,Analytics,Power BI Embedded
+78,Containers,App Service Environment
+79,Analytics,Azure Stream Analytics
+80,Compute,Cloud Services
+81,Containers,Azure Kubernetes Service
+82,Compute,Batch
+83,Analytics,Azure Synapse
+84,Containers,Azure Kubernetes Service
+85,Containers,Container Registry
+86,Containers,Azure Red Hat OpenShift
+87,Compute,Azure Functions
+88,Analytics,Power BI Embedded
+89,Analytics,Azure Databricks
+90,Compute,Cloud Services
+91,Analytics,Azure Stream Analytics
+92,Containers,App Service Environment
+93,Containers,Azure Kubernetes Service
+94,Compute,Azure VMware Solution
+95,Compute,App Service
+96,Analytics,Azure Synapse
+97,Containers,Azure Kubernetes Service
+98,Containers,Azure Red Hat OpenShift
+99,Containers,Azure Kubernetes Service
+100,Containers,Azure Kubernetes Service
