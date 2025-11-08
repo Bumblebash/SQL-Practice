@@ -59,7 +59,7 @@ SELECT
    HAVING COUNT(DISTINCT(p.product_category)) = 3;
 
 
---Method II
+--Method II(No cte)
 SELECT c.customer_id
 FROM customer_contracts c
 LEFT JOIN products p
@@ -68,7 +68,7 @@ WHERE p.product_category IN ('Analytics', 'Compute', 'Containers')
 GROUP BY c.customer_id
 HAVING COUNT(DISTINCT(p.product_category)) = 3;
 
-
+SELECT DISTINCT * FROM customer_contracts;
 
 
 
