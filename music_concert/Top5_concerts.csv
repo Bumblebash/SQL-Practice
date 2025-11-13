@@ -1,0 +1,6 @@
+concert_id,tickets_sold,city,sponsor,label,artist_name,ticket_price_avg,genre,concert_revenue,profit
+57,44045,London,Pepsi,Big Hit Music,BTS,76.44,K-Pop,898469.55,1027459.95
+50,49895,Tokyo,Nike,XO Records,The Weeknd,197.11,R&B/Pop,890812.81,929261.36
+30,46583,Los Angeles,Coca-Cola,Republic Records,Ariana Grande,185.78,Pop,881544.54,740348.36
+33,62482,London,Apple,Aftermath Entertainment,Eminem,134.49,Hip-Hop,654919.01,680193.93
+10,72815,New York,Pepsi,Columbia Records,Beyonce,240.48,R&B,638938.12,541806.42

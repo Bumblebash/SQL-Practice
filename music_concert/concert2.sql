@@ -43,14 +43,21 @@ WHERE  artist_id IN (
 			concert_revenue > 500000
 );
 
+Select * from concerts;
 
 ---Correlated Sub-Query(Postable)
 --Highest Grossing Concert Per Genre 
 SELECT 
 concert_id,
+tickets_sold,
+city,
+sponsor,
+label,
 	artist_name,
+    ticket_price_avg,
 	genre,
-	concert_revenue
+	concert_revenue,
+    profit
 FROM concerts AS c1 
 WHERE concert_revenue =(
 	SELECT MAX (concert_revenue)
