@@ -11,6 +11,17 @@ ALTER TABLE product_spend ALTER COLUMN spend DECIMAL(18,2);
 ALTER TABLE product_spend ALTER COLUMN transaction_date DATETIME2(0);
 
 
+  WITH product_cte As(
+    SELECT category,product,  SUM(spend) As Total_spend,
+    DENSE_RANK() OVER (PARTITION by category ORDER BY SUM(spend) ASC)
+    FROM product_spend
+    GROUP BY category, product
+    )
+    SELECT category, product, Total_spend
+    FROM product_cte 
+    ORDER BY category ASC, Total_spend ASC
+
+
 --Assume you're given a table containing data on Amazon customers and their spending on products in different category, 
 --write a query to identify the top two highest-grossing products within 
 --each category in the year 2022. The output should include the category, product, and total spend.
@@ -33,3 +44,9 @@ Select * FROM ranked_products_cte
 
 
 	Select Distinct(category) From product_spend;
+
+--Expenditure by Category
+SELECT DISTINCT(category), SUM(spend) AS total_Expenditure
+ From product_spend 
+ GROUP BY category 
+ ORDER BY SUM(spend) DESC;

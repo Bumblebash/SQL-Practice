@@ -63,7 +63,8 @@ WHERE concert_revenue =(
 	SELECT MAX (concert_revenue)
 	FROM concerts AS c2
 WHERE c1.genre = c2.genre
-);
+)
+ORDER BY concert_revenue DESC;
 
 
 WITH revenue_per_member AS (
