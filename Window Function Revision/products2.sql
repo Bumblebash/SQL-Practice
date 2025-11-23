@@ -48,7 +48,37 @@ SELECT category, product, Total_items  FROM most_bought_cte
 
 
 
-
+ SELECT 
+ product,
+ spend,
+ transaction_date,
  SUM(spend) OVER (
      PARTITION BY product
      ORDER BY transaction_date) AS running_total
+	FROM product_spend; 
+
+
+	 SELECT 
+ product,
+ spend,
+ transaction_date,
+ SUM(spend) OVER (
+     PARTITION BY product
+     ORDER BY transaction_date) AS running_total
+	FROM product_spend; 
+
+
+	SELECT
+  transaction_date,
+  product,
+  spend,
+  SUM(spend) OVER (
+    PARTITION BY product) AS running_total
+FROM product_spend;
+
+
+--Counting the number of rows using partition
+SELECT product, category ,
+COUNT(*) OVER(
+) As row_number
+FROM product_spend;
