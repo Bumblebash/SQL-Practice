@@ -77,8 +77,83 @@ SELECT category, product, Total_items  FROM most_bought_cte
 FROM product_spend;
 
 
---Counting the number of rows using partition
+--Counting the number of rows using partition with no specified Column
 SELECT product, category ,
 COUNT(*) OVER(
 ) As row_number
+FROM product_spend;
+
+--Counting the number of rows using parttion specifying one Column
+SELECT DISTINCT(category),
+COUNT(*) OVER (PARTITION by category) as Category_count
+From product_spend;
+
+--Counting the number of products present per product and category at the same time 
+
+SELECT  DISTINCT(product), category,
+COUNT(*) OVER (PARTiTION BY product, category) As Total_number_sold
+FROM product_spend
+ORDER BY category ASC
+;
+ 
+
+
+ ---Cummulative Expenditure of each user by user_id over time
+ SELECT user_id,product, category, transaction_date,spend As Money_spent,
+ SUM(spend) OVER(PARTiTION BY user_id order By transaction_date) As cummulative_expenditure
+ From product_spend;
+
+ ---Premium Customers
+ WITH customer_spend_cte As (
+ SELECT user_id, product, category, transaction_date, spend AS Money_spent,
+ SUM(spend) OVER(PARTITION BY user_id order BY transaction_date) AS cummulative_expenditure
+ -- DENSE_RANK() OVER (PARTiTION BY user_id order by Money_spent DESC) As ranked_customers
+ From product_spend
+ )
+ --SELECT * From customer_spend_cte;
+ SELECT  DISTINCT(user_id), SUM(Money_spent) As Total_expenditure,
+ DENSE_RANK() OVER (PARTiTION BY user_id order by SUM(Money_spent) DESC) As ranked_customers
+ FROM customer_spend_cte
+ GROUP BY user_id
+ ORDER BY Total_expenditure DESC;
+
+
+ WITH Ranked_customers_cte AS(
+ SELECT DISTINCT(user_id) , SUM(spend) As Total_expenditure,
+ DENSE_RANK() over ( ORDER BY SUM(spend) DESC) As ranked_customers 
+ FROM product_spend
+ GROUP BY user_id 
+ )
+ --SELECT * FROM Ranked_customers_cte;
+ SELECT user_id, Total_expenditure
+ FROM Ranked_customers_cte
+ WHERE ranked_customers <=10
+ ORDER BY Total_expenditure DESC;
+
+
+ --Total Number of Unique Clients or Customers Present 
+
+ SELECT COUNT(DISTINCT(user_id)) FROM product_spend;
+
+
+
+
+ SELECT 
+  user_id,
+  category, 
+  product,
+  transaction_date,
+  spend,
+  ROUND(AVG(spend) OVER (
+    PARTITION BY user_id ORDER BY transaction_date),2) AS rolling_avg_spend
+FROM product_spend;
+
+
+
+---Average Expenditure per User
+SELECT user_id,
+category,product, spend,
+SUM(spend) OVER(
+PARTITION BY user_id  ORDER BY transaction_date) AS  cummulative_expenditure ,
+transaction_date
 FROM product_spend;
