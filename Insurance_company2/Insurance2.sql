@@ -102,3 +102,46 @@ LEFT JOIN Policies p ON p.BrokerID = bh.BrokerID;
 
 --Total Premium Generated
 SELECT SUM(Premium) As totalPremium FROM policies;
+
+
+WITH broker_id_cte AS (
+SELECT b.BrokerID, b.BrokerName, p.Premium, b.ReportsTo FROM brokers b
+LEFT JOIN policies p
+ON b.BrokerID = p.BrokerID
+)
+---SELECT * from broker_id_cte;
+SELECT BrokerID, BrokerName, ReportsTo, SUM(Premium) AS Total_Premium,
+DENSE_RANK()OVER(PARTITION  BY BrokerName ORDER BY SUM(Premium)  DESC) AS Ranked_brokers
+FROM broker_id_cte
+GROUP BY BrokerID, BrokerName;
+
+SELECT  * FROM policies 
+WHERE BrokerID = 46;
+
+---Determine the Brokers who collect more money($) Per Month 
+SELECT b.BrokerID, b.BrokerName, SUM(p.Premium) As Total_Premium , b.ReportsTo
+--DENSE_RANK()OVER (PARTITION BY b.BrokerID ORDER BY SUM(p.Premium) DESC) AS ranked_broker
+FROM brokers b 
+LEFT JOIN policies p
+ON b.BrokerID = p.BrokerID 
+GROUP BY b.BrokerID, b.BrokerName, b.ReportsTo
+ORDER BY Total_Premium DESC
+;
+
+
+--Any Duplicates in the PolicyID columns
+SELECT PolicyID, COUNT(DISTINCT(PolicyID)) AS Total_apperances FROM policies
+GROUP BY PolicyID;
+
+---Method11(Robust)
+SELECT
+    PolicyID,
+    COUNT(*) AS CountOfDuplicates
+FROM
+policies
+GROUP BY
+  PolicyID
+HAVING
+    COUNT(*) > 1;
+
+
