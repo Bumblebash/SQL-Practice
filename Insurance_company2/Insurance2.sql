@@ -144,4 +144,6 @@ GROUP BY
 HAVING
     COUNT(*) > 1;
 
-
+--Premium Customers
+SELECT PolicyID, Premium FROM policies
+ORDER BY premium DESC;
