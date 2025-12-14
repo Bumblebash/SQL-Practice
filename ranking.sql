@@ -36,4 +36,13 @@ FROM concerts;
 
 
 
+--13/12/2025
+--USING ROW NUMBER , DENSE RANK, RANK 
+
+SELECT artist_name, concert_revenue, 
+ROW_NUMBER() OVER (ORDER BY concert_revenue) AS row_num,
+RANK() OVER (ORDER BY concert_revenue) AS rank_num,
+DENSE_RANK() OVER (ORDER BY concert_revenue) AS dense_rank_num
+FROM concerts;
+
 
