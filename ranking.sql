@@ -1,4 +1,5 @@
 USE PRACTICE;
+SELECT * FROM songs;
 
 select  *from concerts;
 
