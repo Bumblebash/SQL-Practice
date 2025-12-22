@@ -254,3 +254,38 @@ SELECT * FROM Total_cte;
 
 SELECT SUM([10_19Days_Total]) As total_cases
 FROM Total_cte;
+
+
+--Total population By District 
+SELECT 
+    Year,
+    SUM(TotalPopulation) AS total_population
+FROM malaria_data
+WHERE Year = 2021
+  AND LOWER(District) LIKE '% district'
+GROUP BY Year;
+
+
+--Total Population by region
+SELECT year, 
+       SUM(TotalPopulation) AS total_population
+       FROM malaria_data
+    WHERE Region IN (
+    SELECT DISTINCT(District)
+    FROM malaria_data 
+    )
+    AND YEAR = '2020'
+    GROUP  BY year;
+
+
+    WITH valid_districts AS (
+    SELECT *
+    FROM malaria_data
+    WHERE LOWER(District) LIKE '%district%'
+)
+SELECT 
+    Year,
+    SUM(TotalPopulation) AS total_population
+FROM valid_districts
+WHERE Year = 2023
+GROUP BY Year;

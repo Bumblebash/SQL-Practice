@@ -310,3 +310,14 @@ FROM valid_districts
 WHERE Year = 2020
 AND District IN ( 'Mbarara district')
 GROUP BY Year;
+
+--Find Out How many Districts do we have
+SELECT COUNT(*) As TotalDistricts 
+ FRom malaria_data 
+ WHERE LOWER(District) LIKE '%district%' AND Year = 2020;
+
+
+--Find Out How many Regions we have
+ SELECT COUNT(*) As TotalRegions 
+ FRom malaria_data 
+ WHERE District = Region AND Year = 2020;

@@ -80,3 +80,7 @@ WHERE TABLE_NAME = 'malaria_data';
 
 SELECT COUNT(*) FROM malaria_data;
 
+
+
+--Total population
+SELECT SUM(
