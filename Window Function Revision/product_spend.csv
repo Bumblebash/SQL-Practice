@@ -1,0 +1,201 @@
+category,product,user_id,spend,transaction_date,Year,Month
+appliance,air fryer,209,542.25,2023-01-28 17:15:00,2023,January
+furniture,desk,217,871.73,2021-01-30 07:11:00,2021,January
+furniture,desk,144,66.61,2022-01-25 04:55:00,2022,January
+electronics,wireless headset,109,937.4,2021-07-02 23:38:00,2021,July
+furniture,bookshelf,221,336.0,2021-12-28 15:27:00,2021,December
+furniture,sofa,300,494.03,2024-02-26 01:04:00,2024,February
+electronics,smartphone,224,575.2,2024-07-26 17:58:00,2024,July
+electronics,tablet,249,613.23,2023-11-22 06:05:00,2023,November
+electronics,vacuum,174,1124.33,2021-04-18 20:33:00,2021,April
+electronics,vacuum,191,166.46,2022-02-18 10:57:00,2022,February
+electronics,vacuum,191,954.28,2023-08-21 12:21:00,2023,August
+electronics,television,227,1104.92,2023-08-31 09:46:00,2023,August
+furniture,office chair,140,1155.1,2022-12-15 08:44:00,2022,December
+appliance,air fryer,149,45.16,2023-12-13 17:35:00,2023,December
+electronics,computer mouse,285,917.71,2021-06-05 21:33:00,2021,June
+appliance,air fryer,297,694.15,2024-06-25 10:58:00,2024,June
+electronics,tablet,213,81.93,2021-09-19 05:58:00,2021,September
+electronics,television,121,301.61,2023-04-18 01:29:00,2023,April
+furniture,coffee table,272,229.04,2024-11-14 09:05:00,2024,November
+appliance,blender,195,341.83,2024-02-17 12:49:00,2024,February
+furniture,office chair,103,133.63,2022-11-03 23:45:00,2022,November
+electronics,vacuum,222,1057.67,2022-10-22 10:11:00,2022,October
+electronics,smartphone,107,213.03,2022-08-14 19:48:00,2022,August
+appliance,air fryer,215,340.47,2022-04-10 07:47:00,2022,April
+electronics,tablet,211,72.65,2021-12-21 04:42:00,2021,December
+appliance,washing machine,165,354.12,2021-05-15 12:18:00,2021,May
+electronics,vacuum,140,492.44,2021-09-18 07:19:00,2021,September
+furniture,office chair,293,650.07,2024-09-12 00:18:00,2024,September
+appliance,air fryer,256,903.24,2021-11-22 04:14:00,2021,November
+appliance,washing machine,143,170.83,2023-07-10 15:39:00,2023,July
+appliance,microwave,127,359.46,2024-09-26 23:37:00,2024,September
+appliance,refrigerator,164,895.28,2021-01-05 02:54:00,2021,January
+appliance,refrigerator,244,122.51,2021-10-29 20:12:00,2021,October
+electronics,television,269,1009.62,2022-12-18 14:19:00,2022,December
+electronics,television,148,807.06,2023-02-28 13:26:00,2023,February
+furniture,desk,162,528.16,2022-03-25 10:07:00,2022,March
+electronics,television,219,764.21,2021-07-29 23:39:00,2021,July
+furniture,bookshelf,217,38.81,2023-10-12 11:33:00,2023,October
+appliance,blender,281,370.56,2021-01-25 17:46:00,2021,January
+furniture,bookshelf,146,563.75,2021-08-01 09:05:00,2021,August
+appliance,refrigerator,146,664.07,2021-08-30 04:34:00,2021,August
+appliance,washing machine,120,184.36,2022-11-21 11:39:00,2022,November
+furniture,desk,149,755.73,2023-06-06 05:48:00,2023,June
+furniture,bookshelf,198,309.08,2022-07-30 18:17:00,2022,July
+appliance,blender,256,1117.16,2024-05-05 15:12:00,2024,May
+furniture,desk,275,243.52,2024-04-13 14:47:00,2024,April
+furniture,office chair,224,784.4,2023-01-02 06:55:00,2023,January
+furniture,office chair,100,1116.64,2021-08-01 02:13:00,2021,August
+furniture,office chair,118,174.43,2023-02-07 00:40:00,2023,February
+appliance,air fryer,265,947.52,2021-11-05 19:35:00,2021,November
+furniture,sofa,227,946.11,2024-09-04 22:07:00,2024,September
+furniture,office chair,149,781.06,2024-04-28 05:58:00,2024,April
+furniture,desk,184,36.57,2021-01-22 15:09:00,2021,January
+electronics,wireless headset,109,942.18,2021-06-30 16:24:00,2021,June
+furniture,coffee table,119,542.53,2021-01-13 22:17:00,2021,January
+furniture,desk,238,810.67,2022-02-06 19:33:00,2022,February
+electronics,tablet,270,771.62,2024-05-23 08:37:00,2024,May
+electronics,vacuum,259,640.53,2022-09-21 18:43:00,2022,September
+appliance,washing machine,180,112.37,2024-08-24 10:46:00,2024,August
+appliance,blender,216,709.24,2021-04-18 20:38:00,2021,April
+appliance,washing machine,241,922.46,2021-06-16 15:07:00,2021,June
+appliance,microwave,235,1031.96,2022-05-08 13:25:00,2022,May
+electronics,smartphone,290,1169.04,2023-12-01 11:25:00,2023,December
+appliance,microwave,240,926.78,2021-04-04 22:51:00,2021,April
+furniture,bookshelf,281,592.84,2024-07-21 17:24:00,2024,July
+furniture,office chair,109,328.18,2021-07-02 19:30:00,2021,July
+appliance,microwave,191,353.27,2023-08-29 04:08:00,2023,August
+electronics,computer mouse,279,522.29,2023-01-03 06:25:00,2023,January
+appliance,refrigerator,225,651.35,2021-08-15 17:09:00,2021,August
+electronics,computer mouse,250,142.56,2022-11-12 09:45:00,2022,November
+furniture,coffee table,160,160.24,2023-11-11 14:50:00,2023,November
+furniture,desk,298,143.14,2021-11-27 04:45:00,2021,November
+electronics,smartphone,296,851.49,2023-04-17 23:49:00,2023,April
+furniture,office chair,251,637.15,2022-06-25 09:06:00,2022,June
+appliance,washing machine,281,185.9,2024-03-31 17:15:00,2024,March
+electronics,vacuum,183,170.54,2023-04-06 23:30:00,2023,April
+furniture,bookshelf,234,255.89,2021-05-30 08:13:00,2021,May
+appliance,microwave,193,553.77,2023-10-12 16:47:00,2023,October
+appliance,blender,278,1108.33,2022-02-06 10:42:00,2022,February
+furniture,sofa,255,636.17,2023-09-12 10:46:00,2023,September
+electronics,wireless headset,252,817.14,2024-07-27 16:49:00,2024,July
+furniture,sofa,100,98.36,2024-04-25 16:37:00,2024,April
+electronics,smartphone,207,549.58,2023-01-27 11:11:00,2023,January
+appliance,refrigerator,275,416.23,2023-09-27 03:20:00,2023,September
+furniture,desk,129,223.27,2024-06-10 04:27:00,2024,June
+furniture,sofa,168,1174.74,2021-11-04 19:48:00,2021,November
+furniture,bookshelf,205,251.04,2021-12-27 12:10:00,2021,December
+electronics,vacuum,262,411.15,2022-03-19 02:11:00,2022,March
+electronics,computer mouse,232,667.0,2024-12-10 11:03:00,2024,December
+electronics,tablet,287,1137.27,2023-03-18 14:59:00,2023,March
+electronics,vacuum,178,129.01,2023-07-22 12:48:00,2023,July
+electronics,smartphone,110,403.96,2021-02-21 08:49:00,2021,February
+furniture,coffee table,134,385.92,2024-01-18 03:52:00,2024,January
+appliance,air fryer,100,433.8,2022-09-15 03:45:00,2022,September
+electronics,smartphone,175,57.33,2022-01-19 21:24:00,2022,January
+furniture,coffee table,207,1139.33,2022-09-27 13:19:00,2022,September
+furniture,office chair,196,1013.4,2024-05-08 17:11:00,2024,May
+furniture,office chair,271,643.02,2021-12-03 04:33:00,2021,December
+electronics,television,245,875.18,2022-05-24 13:10:00,2022,May
+electronics,computer mouse,113,381.02,2021-10-11 20:24:00,2021,October
+electronics,tablet,250,544.57,2022-09-18 20:03:00,2022,September
+electronics,smartphone,248,749.22,2021-08-02 22:30:00,2021,August
+electronics,television,166,1007.68,2021-09-22 17:39:00,2021,September
+appliance,microwave,123,1081.54,2021-06-24 06:26:00,2021,June
+furniture,desk,249,963.08,2024-02-11 14:08:00,2024,February
+electronics,vacuum,271,517.53,2022-12-26 11:20:00,2022,December
+electronics,computer mouse,198,856.9,2022-04-14 21:21:00,2022,April
+electronics,television,274,417.29,2021-08-19 00:02:00,2021,August
+appliance,microwave,103,375.71,2021-12-23 22:52:00,2021,December
+furniture,office chair,195,76.23,2022-04-21 09:40:00,2022,April
+furniture,bookshelf,100,476.56,2023-09-29 19:28:00,2023,September
+appliance,washing machine,121,506.47,2023-07-14 19:35:00,2023,July
+furniture,sofa,239,675.7,2022-03-02 21:28:00,2022,March
+electronics,tablet,298,420.28,2024-07-18 10:03:00,2024,July
+electronics,tablet,207,752.39,2022-08-28 21:16:00,2022,August
+furniture,coffee table,120,714.48,2021-11-30 07:58:00,2021,November
+appliance,refrigerator,290,860.82,2023-04-24 07:19:00,2023,April
+furniture,desk,252,919.13,2023-04-05 19:54:00,2023,April
+furniture,bookshelf,193,155.43,2021-11-19 00:44:00,2021,November
+electronics,television,225,518.97,2022-01-06 12:46:00,2022,January
+electronics,smartphone,184,1162.33,2023-07-28 16:07:00,2023,July
+appliance,microwave,263,118.55,2022-02-17 13:26:00,2022,February
+furniture,desk,220,776.66,2023-05-07 01:26:00,2023,May
+furniture,desk,236,585.55,2022-03-07 20:45:00,2022,March
+electronics,smartphone,102,1132.74,2021-01-06 04:33:00,2021,January
+furniture,coffee table,225,103.18,2024-07-26 22:32:00,2024,July
+furniture,office chair,108,1095.42,2023-05-04 11:21:00,2023,May
+electronics,wireless headset,195,854.59,2021-03-15 00:24:00,2021,March
+furniture,bookshelf,107,327.51,2022-08-30 11:48:00,2022,August
+furniture,bookshelf,162,912.48,2022-01-06 22:17:00,2022,January
+furniture,desk,146,168.01,2021-09-17 16:38:00,2021,September
+appliance,blender,192,428.42,2024-06-22 19:20:00,2024,June
+furniture,sofa,160,809.66,2022-10-02 10:59:00,2022,October
+electronics,television,287,737.97,2023-11-19 16:35:00,2023,November
+furniture,office chair,159,1021.1,2023-06-14 06:17:00,2023,June
+electronics,tablet,119,724.8,2023-07-02 17:55:00,2023,July
+appliance,microwave,266,218.12,2021-12-08 04:20:00,2021,December
+furniture,sofa,178,173.15,2021-06-13 14:19:00,2021,June
+appliance,refrigerator,238,400.33,2021-01-19 12:12:00,2021,January
+furniture,bookshelf,247,147.62,2024-12-16 13:49:00,2024,December
+furniture,bookshelf,265,343.4,2023-05-22 12:51:00,2023,May
+appliance,air fryer,257,895.38,2024-11-10 06:57:00,2024,November
+furniture,coffee table,205,848.54,2024-08-27 12:51:00,2024,August
+appliance,refrigerator,117,409.22,2021-06-05 18:55:00,2021,June
+appliance,microwave,109,757.78,2024-08-06 03:42:00,2024,August
+furniture,coffee table,163,791.19,2021-09-06 12:03:00,2021,September
+furniture,desk,162,438.89,2021-09-11 00:28:00,2021,September
+furniture,bookshelf,147,913.71,2022-06-28 07:33:00,2022,June
+appliance,microwave,216,309.4,2024-03-09 10:14:00,2024,March
+furniture,coffee table,269,976.33,2023-08-02 21:35:00,2023,August
+electronics,television,151,573.76,2022-05-08 06:23:00,2022,May
+appliance,refrigerator,196,1042.77,2022-06-27 22:50:00,2022,June
+electronics,computer mouse,191,431.53,2021-02-05 14:30:00,2021,February
+furniture,office chair,148,897.32,2023-01-07 21:13:00,2023,January
+electronics,television,179,1082.68,2022-06-03 13:31:00,2022,June
+furniture,bookshelf,238,367.65,2022-02-11 02:04:00,2022,February
+appliance,refrigerator,180,718.39,2023-01-06 06:47:00,2023,January
+electronics,vacuum,188,815.77,2023-05-13 09:23:00,2023,May
+furniture,coffee table,173,25.68,2023-07-08 23:55:00,2023,July
+electronics,tablet,280,734.72,2021-06-16 02:11:00,2021,June
+electronics,vacuum,153,267.19,2022-09-19 06:28:00,2022,September
+appliance,refrigerator,140,995.7,2021-03-20 14:06:00,2021,March
+appliance,washing machine,275,1152.28,2024-08-19 18:05:00,2024,August
+electronics,smartphone,193,1179.87,2024-10-30 05:12:00,2024,October
+furniture,sofa,212,782.35,2024-06-19 05:10:00,2024,June
+appliance,refrigerator,147,924.31,2024-01-25 10:07:00,2024,January
+electronics,vacuum,269,350.51,2021-08-04 23:15:00,2021,August
+furniture,sofa,281,1136.91,2023-11-10 16:08:00,2023,November
+appliance,refrigerator,145,1036.97,2024-01-16 03:30:00,2024,January
+appliance,washing machine,203,548.38,2024-10-12 13:14:00,2024,October
+electronics,wireless headset,234,41.74,2022-01-09 01:41:00,2022,January
+furniture,office chair,166,892.37,2021-09-12 09:27:00,2021,September
+furniture,desk,182,230.99,2023-07-04 14:48:00,2023,July
+furniture,office chair,268,167.34,2024-03-30 14:48:00,2024,March
+furniture,coffee table,153,557.88,2021-03-29 23:07:00,2021,March
+furniture,sofa,150,187.15,2022-11-20 01:32:00,2022,November
+appliance,refrigerator,115,581.05,2022-09-15 20:28:00,2022,September
+appliance,microwave,214,492.1,2024-05-30 01:43:00,2024,May
+electronics,wireless headset,230,360.35,2022-09-03 22:36:00,2022,September
+electronics,tablet,116,286.11,2021-12-17 02:04:00,2021,December
+electronics,smartphone,270,916.18,2021-12-11 05:17:00,2021,December
+electronics,tablet,170,1024.55,2021-11-26 06:08:00,2021,November
+furniture,desk,204,1019.02,2021-06-01 22:48:00,2021,June
+furniture,coffee table,140,135.09,2021-06-02 20:20:00,2021,June
+appliance,refrigerator,250,543.7,2021-12-13 07:13:00,2021,December
+appliance,blender,159,150.58,2021-11-07 07:45:00,2021,November
+electronics,computer mouse,251,376.76,2023-08-22 06:28:00,2023,August
+electronics,wireless headset,286,179.33,2023-02-08 20:05:00,2023,February
+furniture,bookshelf,135,164.9,2021-05-11 04:28:00,2021,May
+electronics,television,251,554.71,2022-02-03 02:47:00,2022,February
+furniture,coffee table,188,354.01,2022-01-31 07:26:00,2022,January
+appliance,refrigerator,124,830.25,2022-09-19 10:59:00,2022,September
+electronics,television,293,606.56,2022-09-28 08:12:00,2022,September
+appliance,blender,164,1111.1,2024-03-05 06:58:00,2024,March
+electronics,vacuum,262,412.15,2024-07-30 09:59:00,2024,July
+electronics,tablet,190,495.06,2023-05-22 15:04:00,2023,May
+furniture,office chair,135,506.1,2021-02-03 09:48:00,2021,February
+furniture,office chair,272,177.29,2024-04-25 00:22:00,2024,April
+appliance,washing machine,223,758.2,2023-11-28 01:39:00,2023,November
+appliance,washing machine,290,1106.6,2023-06-05 13:15:00,2023,June

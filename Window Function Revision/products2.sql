@@ -100,7 +100,7 @@ ORDER BY category ASC
 
  ---Cummulative Expenditure of each user by user_id over time
  SELECT user_id,product, category, transaction_date,spend As Money_spent,
- SUM(spend) OVER(PARTiTION BY user_id order By transaction_date) As cummulative_expenditure
+ SUM(spend) OVER(PARTiTION BY product order By transaction_date) As cummulative_expenditure
  From product_spend;
 
  ---Premium Customers
@@ -157,3 +157,7 @@ SUM(spend) OVER(
 PARTITION BY user_id  ORDER BY transaction_date) AS  cummulative_expenditure ,
 transaction_date
 FROM product_spend;
+
+
+
+
