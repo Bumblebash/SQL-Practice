@@ -219,3 +219,17 @@ SELECT o.customer_id, SUM(o.quantity) AS total_books_ordered
     ORDER BY total_books_ordered DESC;
 
 
+
+--12/01/2024
+--Finding Books in the same Genre 
+SELECT 
+    b1.genre,
+    b1.book_title AS current_book,
+    b2.book_title AS suggested_book
+FROM goodreads AS b1
+INNER JOIN goodreads AS b2
+        ON b1.genre = b2.genre
+WHERE b1.book_id != b2.book_id 
+ORDER BY b1.book_title;
+
+
