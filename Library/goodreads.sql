@@ -225,11 +225,18 @@ SELECT o.customer_id, SUM(o.quantity) AS total_books_ordered
 SELECT 
     b1.genre,
     b1.book_title AS current_book,
-    b2.book_title AS suggested_book
+    b2.book_title AS suggested_book1,
+    b3.book_title AS suggested_book2
 FROM goodreads AS b1
 INNER JOIN goodreads AS b2
         ON b1.genre = b2.genre
-WHERE b1.book_id != b2.book_id 
+INNER JOIN goodreads AS b3
+        ON b1.genre = b3.genre
+WHERE b1.book_id != b3.book_id AND
+b1.book_id != b2.book_id AND 
+b2.book_id != b3.book_id
 ORDER BY b1.book_title;
+
+
 
 

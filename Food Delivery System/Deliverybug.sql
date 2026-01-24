@@ -48,6 +48,17 @@ WITH ordered_cte  AS(
 
 
 
+SELECT order_id
+FROM orders
+WHERE quantity >=2 
+INTERSECT
+SELECT Order_id 
+FROM deliveries 
+WHERE delivery_status = 'Delivered'
+;
+
+
+
 
 
 
