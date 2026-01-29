@@ -13,7 +13,7 @@ alter table superheroes alter column avg_comments int;
 
 /**Assigning popularity category using CASE statement
       And storing it in the userstoredprocedure**/
-Create proc uspReturnMostpopularActors
+Create proc usp ReturnMostpopularActors
 	AS 
 	SELECT 
 		character,
@@ -154,3 +154,46 @@ SELECT platform,
 FROM superheroes
 GROUP BY platform
 ;
+
+
+--25/1/2026
+/**Showing the Average engagement metrics for each superhero alias accross various platforms**/
+SELECT 
+superhero_alias,
+	 MAX(CASE WHEN platform = 'Instagram' THEN  engagement_rate END) AS instagram_engagement_rate,
+	 MAX(CASE WHEN platform = 'Twitter' THEN engagement_rate END) AS twitter_engagement_rate,
+	 MAX(CASE WHEN platform = 'Tiktok' THEN engagement_rate END) As tiktok_engagement_rate,
+	 MAX(CASE WHEN platform = 'YouTube' THEN engagement_rate END) AS youtube_engagement_rate
+FROM superheroes
+WHERE superhero_alias IN ('Iron Man', 'Captain  America', 'Black Widow', 'Thor')
+GROUP BY superhero_alias
+ORDER BY superhero_alias;
+
+---Not yet sure of wats happening Here 
+
+SELECT
+  superhero_alias,
+  platform,
+  CASE platform
+    WHEN 'Instagram' THEN engagement_rate
+    WHEN 'Twitter' THEN engagement_rate
+    WHEN 'YouTube' THEN engagement_rate
+    WHEN 'TikTok' THEN engagement_rate
+  END AS engagement_rate
+FROM superheroes
+WHERE superhero_alias IN ('Iron Man', 'Captain America', 'Black Widow', 'Thor')
+ORDER BY superhero_alias;
+
+
+--Capiatilising and Lowercasing characters in a table
+SELECT 
+	UPPER('Avenger') AS superhero_upper,
+	LOWER('Avenger') AS superhero_lower
+FROM superheroes;
+
+
+--concatinating Strings
+SELECT 
+	CONCAT('Peter', 'Quill') AS character,
+	CONCAT('peter', 'quill', 'avengers', '.', 'com') AS email
+FROM superheroes;
