@@ -1,0 +1,35 @@
+====MIGRATING DATA INTO A NEW DATABASE===
+
+INSERT INTO [MalariaLanding_DB].dbo.Malaria2024 FROM 
+[MalariaDB].dbo.Malaria2024
+
+
+====DROPPING A FOREIGN KEY====
+ALTER TABLE DimGender
+DROP CONSTRAINT pk_name;
+
+===ADDING A PRIMARY KEY TO A TABLE===
+ALTER TABLE Malaria_stg_Permanent
+ADD CONSTRAINT PRIMARYKEY(Region)
+
+
+====Modify Column Datatype===
+ALTER TABLE Malaria_stg_Permanent 
+ALTER COLUMN Region NVARCHAR NOT NULL;
+
+=====Modify Column Name===
+ALTER TABLE Malaria_stg_Permanent
+RENAME COLUMN old_column_name TO new_column_name;
+
+
+===Discover Constraint Name==
+EXEC sp_fkeys DimGender;
+
+EXEC sp_pkeys DimGender;
+
+
+==DROP COLUMN===
+ALTER TABLE Stg_Malaria DROP COLUMN GenderKey;
+
+===ADD COLUMN===
+ALTER TABLE Stg_Malaria ADD GenderKey INT IDENTITY(1,1) PRIMARYKEY;
