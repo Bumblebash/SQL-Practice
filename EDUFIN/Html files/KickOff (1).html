@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFin Investigation | Kick-Off Guide · SkillAI Path</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+        :root {
+            --ink:#111827; --ink-soft:#374151; --ink-muted:#6b7280;
+            --bg:#f9fafb; --bg-card:#ffffff; --border:#e5e7eb;
+            --accent:#2563eb; --accent-lt:#eff6ff; --accent-md:#bfdbfe;
+            --red:#dc2626; --red-lt:#fef2f2; --red-md:#fecaca;
+            --green:#16a34a; --green-lt:#f0fdf4; --green-md:#bbf7d0;
+            --amber:#d97706; --amber-lt:#fffbeb; --amber-md:#fde68a;
+            --sidebar-w:260px;
+            --mono:'JetBrains Mono',monospace;
+            --sans:'Plus Jakarta Sans',sans-serif;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{scroll-behavior:smooth}
+        body{font-family:var(--sans);background:#f0f4ff;background-image:radial-gradient(circle,#c7d7ff 1px,transparent 1px);background-size:28px 28px;color:var(--ink);line-height:1.6;font-size:15px}
+        .container{display:flex;min-height:100vh}
+
+        /* SIDEBAR */
+        .sidebar{width:var(--sidebar-w);background:#fff;border-right:1px solid var(--border);position:fixed;height:100vh;overflow-y:auto;z-index:100}
+        .sidebar::-webkit-scrollbar{width:3px}
+        .sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+        .sb-head{padding:22px 20px 18px;border-bottom:1px solid var(--border)}
+        .sb-label{font-family:var(--mono);font-size:0.62em;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+        .sb-title{font-size:0.95em;font-weight:700;color:#1e3a5f}
+        .sb-case{font-size:0.78em;color:var(--ink-muted);margin-top:2px}
+        .nav-menu{padding:12px 0 24px}
+        .nav-group{margin-bottom:18px}
+        .nav-group-label{padding:4px 20px 6px;font-family:var(--mono);font-size:0.6em;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink-muted)}
+        .nav-item{display:block;padding:8px 20px;font-size:0.84em;color:var(--ink-soft);border-left:2px solid transparent;cursor:pointer;transition:all 0.12s;line-height:1.3}
+        .nav-item:hover{background:var(--accent-lt);color:var(--accent);border-left-color:var(--accent-md)}
+        .nav-item.active{background:var(--accent-lt);color:var(--accent);border-left-color:var(--accent);font-weight:600}
+
+        /* MAIN */
+        .main{margin-left:var(--sidebar-w);flex:1;padding:36px 52px 80px;max-width:1100px}
+
+        /* HERO */
+        .page-header{background:linear-gradient(135deg,#dbeafe 0%,#eff6ff 60%,#e0f2fe 100%);border-radius:12px;padding:36px 40px;margin-bottom:32px;position:relative;overflow:hidden;border:1px solid #bfdbfe;box-shadow:0 4px 20px rgba(37,99,235,0.1)}
+        .page-header::after{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(147,197,253,0.25),transparent 70%)}
+        .page-header::before{content:'';position:absolute;bottom:-40px;left:30%;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(196,181,253,0.2),transparent 70%)}
+        .ph-label{font-family:var(--mono);font-size:0.68em;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#2563eb;margin-bottom:10px}
+        .ph-title{font-size:2em;font-weight:800;color:#1e3a5f;margin-bottom:6px;letter-spacing:-0.5px;line-height:1.15}
+        .ph-sub{font-size:0.95em;color:#4b5563;font-weight:400;margin-bottom:6px}
+        .ph-positioning{font-size:0.88em;color:#1d4ed8;font-weight:600;font-style:italic;margin-bottom:22px}
+        .ph-chips{display:flex;gap:10px;flex-wrap:wrap}
+        .ph-chip{background:white;border:1px solid #bfdbfe;padding:4px 14px;border-radius:20px;font-family:var(--mono);font-size:0.72em;color:#2563eb}
+        .ph-chip strong{color:#1e3a5f;margin-right:4px}
+
+        /* SECTION */
+        .section{background:#fff;border:1px solid #e0e7ff;border-radius:14px;padding:32px;margin-bottom:20px;box-shadow:0 2px 16px rgba(37,99,235,0.07),0 1px 4px rgba(0,0,0,0.04)}
+        .section h2{font-size:1.18em;font-weight:800;background:linear-gradient(90deg,#1d4ed8,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;padding-bottom:14px;margin-bottom:20px;border-bottom:2px solid transparent;border-image:linear-gradient(90deg,#bfdbfe,#ddd6fe) 1;display:flex;align-items:center;gap:10px}
+        .section h2 .sn{-webkit-text-fill-color:initial}
+        .sn{font-family:var(--mono);font-size:0.72em;font-weight:600;color:var(--accent);background:var(--accent-lt);padding:2px 9px;border-radius:4px}
+        .section h3{font-size:0.92em;font-weight:700;color:#1e3a5f;margin:22px 0 10px}
+        .section p{color:var(--ink-soft);margin-bottom:12px;font-size:0.94em;line-height:1.7}
+        .section p:last-child{margin-bottom:0}
+        .section ul,.section ol{padding-left:20px;margin:10px 0 16px}
+        .section li{color:var(--ink-soft);margin:7px 0;font-size:0.93em;line-height:1.6}
+
+        /* BOXES */
+        .box{padding:14px 18px;border-radius:8px;margin:14px 0;font-size:0.9em;line-height:1.7}
+        .box-blue{background:linear-gradient(135deg,#eff6ff,#e8f0fe);border-left:4px solid var(--accent)}
+        .box-red{background:linear-gradient(135deg,#fef2f2,#fff0f0);border-left:4px solid var(--red)}
+        .box-green{background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border-left:4px solid var(--green)}
+        .box-amber{background:linear-gradient(135deg,#fffbeb,#fef9ec);border-left:4px solid var(--amber)}
+        .box-blue strong{color:var(--accent)}
+        .box-red strong{color:var(--red)}
+        .box-green strong{color:var(--green)}
+        .box-amber strong{color:var(--amber)}
+        .box ul{margin:8px 0 0;padding-left:18px}
+        .box li{color:var(--ink-soft);margin:5px 0;line-height:1.6}
+
+        /* LINK ROW */
+        .link-row{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--accent-lt);border:1px solid var(--accent-md);border-radius:8px;margin:8px 0;text-decoration:none;transition:all 0.12s}
+        .link-row:hover{background:#dbeafe;border-color:var(--accent)}
+        .link-icon{font-size:1.1em;flex-shrink:0}
+        .link-body{flex:1;min-width:0}
+        .link-label{font-size:0.72em;font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:2px}
+        .link-url{font-size:0.82em;color:#1e3a5f;font-weight:600;word-break:break-all}
+        .link-desc{font-size:0.78em;color:var(--ink-muted);margin-top:2px}
+        .link-arrow{font-size:0.85em;color:var(--accent);flex-shrink:0}
+
+        /* CONTACT ROW */
+        .contact-strip{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+        .contact-chip{display:inline-flex;align-items:center;gap:6px;background:#f8faff;border:1px solid #e0e7ff;border-radius:6px;padding:7px 13px;font-size:0.82em;color:#1e3a5f}
+        .contact-chip span{color:var(--ink-muted);font-size:0.9em}
+
+        /* REASON CARDS */
+        .reason-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:18px 0}
+        .reason-card{background:linear-gradient(135deg,#eff6ff,#f8faff);border:1px solid #bfdbfe;border-radius:10px;padding:20px;border-top:3px solid var(--accent);box-shadow:0 2px 8px rgba(37,99,235,0.06)}
+        .reason-card:nth-child(2){background:linear-gradient(135deg,#fef2f2,#fff8f8);border-color:#fecaca;border-top-color:var(--red)}
+        .reason-card:nth-child(3){background:linear-gradient(135deg,#f0fdf4,#f7fff9);border-color:#bbf7d0;border-top-color:var(--green)}
+        .r-label{font-family:var(--mono);font-size:0.62em;font-weight:600;letter-spacing:1.5px;color:var(--ink-muted);margin-bottom:8px}
+        .reason-card h4{font-size:0.88em;font-weight:700;color:#1e3a5f;margin-bottom:8px;line-height:1.35}
+        .reason-card p{font-size:0.84em;color:var(--ink-soft);line-height:1.65}
+
+        /* DAY CARDS */
+        .day-cards{display:flex;flex-direction:column;gap:0;margin:20px 0;border:1px solid #e0e7ff;border-radius:14px;overflow:hidden}
+        .dc-row{display:grid;grid-template-columns:100px 1fr;border-bottom:1px solid #e0e7ff}
+        .dc-row:last-child{border-bottom:none}
+        .dc-label{padding:18px 16px;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;background:linear-gradient(180deg,#f8faff,#f0f4ff);border-right:1px solid #e0e7ff}
+        .dc-day{font-size:1.1em;font-weight:800;letter-spacing:-0.5px}
+        .dc-badge{font-family:var(--mono);font-size:0.6em;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+        .dc-day.mon{color:#2563eb} .dc-badge.mon{color:#93c5fd}
+        .dc-day.tue{color:#d97706} .dc-badge.tue{color:#fcd34d}
+        .dc-day.wed{color:#7c3aed} .dc-badge.wed{color:#c4b5fd}
+        .dc-day.thu{color:#475569} .dc-badge.thu{color:#94a3b8}
+        .dc-day.fri{color:#dc2626} .dc-badge.fri{color:#fca5a5}
+        .dc-content{padding:16px 18px}
+        .dc-events{display:flex;flex-direction:column;gap:8px}
+        .dc-event{font-size:0.82em;color:#4b5563;line-height:1.6;padding-left:10px;border-left:2px solid #e0e7ff}
+        .dc-event.highlight{border-left-color:#2563eb;color:#1e3a5f;font-weight:600}
+        .dc-event.note{border-left-color:#f59e0b;font-style:italic;color:#78350f}
+
+        /* CHECKLIST */
+        .checklist{list-style:none;padding:0;margin:14px 0}
+        .checklist li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--border);font-size:0.91em;color:#4b5563;line-height:1.6}
+        .checklist li:last-child{border-bottom:none}
+        .cn{min-width:24px;height:24px;background:linear-gradient(135deg,#2563eb,#7c3aed);border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.65em;font-weight:700;color:white;flex-shrink:0;margin-top:2px}
+
+        /* CERT */
+        .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+        .cert-box{border-radius:8px;padding:16px 18px}
+        .cert-box.green{background:var(--green-lt);border:1px solid var(--green-md)}
+        .cert-box.red{background:var(--red-lt);border:1px solid var(--red-md)}
+        .cert-box h4{font-size:0.85em;font-weight:700;margin-bottom:10px}
+        .cert-box.green h4{color:var(--green)}
+        .cert-box.red h4{color:var(--red)}
+        .cert-box ul{padding-left:16px}
+        .cert-box li{font-size:0.82em;color:var(--ink-soft);margin:6px 0;line-height:1.55}
+
+        /* RULES */
+        .rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+        .rule-box{background:linear-gradient(135deg,#fafbff,#f5f7ff);border:1px solid #e0e7ff;border-radius:10px;padding:18px 20px;border-left:3px solid #a5b4fc}
+        .rule-num{font-family:var(--mono);font-size:0.62em;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink-muted);margin-bottom:6px}
+        .rule-box h4{font-size:0.88em;font-weight:700;color:#1e3a5f;margin-bottom:6px}
+        .rule-box p{font-size:0.84em;color:var(--ink-soft);line-height:1.6}
+
+        /* FOLDER TABLE */
+        .folder-table{width:100%;border-collapse:collapse;margin:16px 0;border-radius:10px;overflow:hidden;border:1px solid #e0e7ff}
+        .folder-table th{background:linear-gradient(90deg,#dbeafe,#e0e7ff);color:#1e3a5f;padding:11px 14px;text-align:left;font-family:var(--mono);font-size:0.7em;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;border-bottom:1px solid #bfdbfe}
+        .folder-table td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-soft);font-size:0.88em;vertical-align:top;line-height:1.55}
+        .folder-table tr:last-child td{border-bottom:none}
+        .folder-table tr:nth-child(even) td{background:#f8faff}
+        .folder-table tr:hover td{background:#eff6ff}
+        .folder-label{font-family:var(--mono);font-size:0.78em;font-weight:600;color:#2563eb;background:#eff6ff;padding:2px 8px;border-radius:3px}
+
+        /* CODE */
+        code{background:var(--accent-lt);padding:1px 5px;border-radius:3px;font-family:var(--mono);color:var(--red);font-size:0.86em}
+
+        /* TWO COL */
+        .li-two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+        .li-col{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+        .li-col-title{font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;font-family:var(--mono)}
+        .li-col.works .li-col-title{color:var(--green)}
+        .li-col.skip  .li-col-title{color:var(--red)}
+        .li-col ul{padding-left:16px}
+        .li-col li{font-size:0.82em;color:var(--ink-soft);margin:6px 0;line-height:1.55}
+
+        /* PORTFOLIO */
+        .portfolio-grid{display:flex;flex-direction:column;gap:0;margin:18px 0;border:1px solid #e0e7ff;border-radius:12px;overflow:hidden}
+        .portfolio-row{display:flex;align-items:flex-start;gap:14px;padding:13px 18px;border-bottom:1px solid #e0e7ff}
+        .portfolio-row:last-child{border-bottom:none}
+        .portfolio-row:nth-child(odd){background:linear-gradient(135deg,#f8faff,#fff)}
+        .portfolio-row:nth-child(even){background:white}
+        .p-num{min-width:26px;height:26px;background:linear-gradient(135deg,#2563eb,#7c3aed);border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.65em;font-weight:700;color:white;flex-shrink:0}
+        .p-label{font-size:0.88em;font-weight:700;color:#1e3a5f;margin-bottom:2px}
+        .p-desc{font-size:0.82em;color:var(--ink-muted);line-height:1.55}
+
+        /* LINKEDIN POST */
+        .li-post{background:linear-gradient(135deg,#f8faff,#fff);border:1px solid #bfdbfe;border-radius:12px;padding:22px 24px;margin:16px 0;font-size:0.88em;color:var(--ink-soft);line-height:1.8}
+        .li-post-label{font-family:var(--mono);font-size:0.62em;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+
+        /* STEP LIST */
+        .step-list{display:flex;flex-direction:column;gap:0;margin:18px 0;border:1px solid #e0e7ff;border-radius:12px;overflow:hidden}
+        .step-row{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;border-bottom:1px solid #e0e7ff;line-height:1.6}
+        .step-row:last-child{border-bottom:none}
+        .step-row:nth-child(odd){background:linear-gradient(135deg,#f8faff,#fff)}
+        .step-row:nth-child(even){background:white}
+        .step-n{min-width:26px;height:26px;background:linear-gradient(135deg,#2563eb,#7c3aed);border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.65em;font-weight:700;color:white;flex-shrink:0;margin-top:1px}
+        .step-text{font-size:0.91em;color:#374151}
+
+        /* FOOTER */
+        footer{margin-left:var(--sidebar-w);padding:20px 52px;border-top:1px solid var(--border);background:white}
+        footer p{font-family:var(--mono);font-size:0.75em;color:var(--ink-muted)}
+
+        @media(max-width:900px){
+            .sidebar{width:100%;position:relative;height:auto;border-right:none;border-bottom:1px solid var(--border)}
+            .main{margin-left:0;padding:24px 20px 60px}
+            footer{margin-left:0}
+            .reason-grid,.rules-grid,.cert-grid,.li-two-col{grid-template-columns:1fr}
+            .dc-row{grid-template-columns:80px 1fr}
+        }
+        /* ─── WAITING SCREEN ─── */
+        #ws {
+            position: fixed; inset: 0; z-index: 9999;
+            background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 50%, #e0e7ff 100%);
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .ws-bg {
+            position: absolute; inset: 0;
+            background-image: radial-gradient(circle, #bfdbfe 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        .ws-orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+        .ws-orb-1 { width: 500px; height: 500px; background: rgba(37,99,235,0.12); top: -150px; left: -100px; }
+        .ws-orb-2 { width: 350px; height: 350px; background: rgba(124,58,237,0.08); bottom: -80px; right: -80px; }
+        .ws-inner { position: relative; z-index: 2; max-width: 600px; padding: 0 28px; text-align: center; }
+        .ws-pill {
+            display: inline-block; font-family: var(--mono); font-size: 0.7em; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase; color: #2563eb;
+            border: 1px solid #bfdbfe; background: white;
+            padding: 5px 18px; border-radius: 20px; margin-bottom: 24px;
+        }
+        #ws h1 { font-size: 2.8em; font-weight: 800; color: #1e3a5f; line-height: 1.1; margin-bottom: 8px; letter-spacing: -1px; }
+        #ws h1 span { background: linear-gradient(90deg,#1d4ed8,#7c3aed); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .ws-sub { font-size: 0.9em; color: #64748b; margin-bottom: 32px; }
+        .ws-live { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 32px; }
+        .ws-dot { width: 8px; height: 8px; background: #16a34a; border-radius: 50%; animation: blink 1.6s ease-in-out infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        .ws-live-t { font-family: var(--mono); font-size: 0.85em; color: #16a34a; font-weight: 600; }
+        .ws-checks {
+            background: white; border: 1px solid #bfdbfe;
+            border-radius: 12px; padding: 24px 28px; text-align: left; margin-bottom: 28px;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.08);
+        }
+        .ws-checks-title { font-family: var(--mono); font-size: 0.63em; letter-spacing: 1.5px; text-transform: uppercase; color: #2563eb; margin-bottom: 16px; font-weight: 600; }
+        .ws-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 12px; color: #374151; font-size: 0.88em; line-height: 1.5; }
+        .ws-item:last-child { margin-bottom: 0; }
+        .ws-n { min-width: 22px; height: 22px; background: linear-gradient(135deg,#2563eb,#7c3aed); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.68em; font-weight: 700; color: white; flex-shrink: 0; margin-top: 1px; }
+        .ws-footer { font-family: var(--mono); font-size: 0.72em; color: #94a3b8; }
+        .ws-footer strong { color: #64748b; }
+        .ws-btn {
+            position: absolute; bottom: 24px; right: 24px;
+            background: #2563eb; border: none;
+            color: white; padding: 9px 22px; border-radius: 6px;
+            font-family: var(--mono); font-size: 0.78em; cursor: pointer; transition: all 0.2s;
+            font-weight: 600;
+        }
+        .ws-btn:hover { background: #1d4ed8; }
+    </style>
+</head>
+<body>
+
+<!-- ══════ WAITING SCREEN ══════ -->
+<div id="ws">
+    <div class="ws-bg"></div>
+    <div class="ws-orb ws-orb-1"></div>
+    <div class="ws-orb ws-orb-2"></div>
+    <div class="ws-inner">
+        <div class="ws-pill">SkillAI Path &nbsp;·&nbsp; Monday Kickoff. Live.</div>
+        <h1>EduFin<br><span>Investigation Case</span></h1>
+        <p class="ws-sub">Welcome. Good that you made it to the live session.</p>
+        <div class="ws-live">
+            <div class="ws-dot"></div>
+            <span class="ws-live-t">Session starts at 7:00 PM sharp.</span>
+        </div>
+        <div class="ws-checks">
+            <div class="ws-checks-title">Before we begin, confirm these.</div>
+            <div class="ws-item">
+                <div class="ws-n">1</div>
+                <span>You are in the <strong>WhatsApp group</strong> and have read all pinned messages.</span>
+            </div>
+            <div class="ws-item">
+                <div class="ws-n">2</div>
+                <span><strong>Pen and paper ready.</strong> Note your doubts as they come up. Post them in chat right away, don't hold.</span>
+            </div>
+            <div class="ws-item">
+                <div class="ws-n">3</div>
+                <span><strong>30 min</strong> · I walk through the full 5-day structure. &nbsp;<strong>15 min</strong> · open Q&amp;A. Hold your questions until then.</span>
+            </div>
+        </div>
+        <div class="ws-footer"><strong>Viresh Gendle</strong> &nbsp;·&nbsp; skillaipath.com/edufinsql</div>
+    </div>
+    <button class="ws-btn" onclick="document.getElementById('ws').style.display='none'">Enter Session →</button>
+</div>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+    <div class="sb-head">
+        <div class="sb-label">SkillAI Path</div>
+        <div class="sb-title">Kick-Off Guide</div>
+        <div class="sb-case">EduFin Investigation</div>
+    </div>
+    <div class="nav-menu">
+        <div class="nav-group">
+            <div class="nav-group-label">The Investigation</div>
+            <div class="nav-item" onclick="go('what')">01. What This Is &amp; Why It's Different</div>
+        </div>
+        <div class="nav-group">
+            <div class="nav-group-label">Getting Started</div>
+            <div class="nav-item" onclick="go('setup')">02. Before You Start</div>
+        </div>
+        <div class="nav-group">
+            <div class="nav-group-label">The Week</div>
+            <div class="nav-item" onclick="go('flow')">03. Monday to Friday Flow</div>
+            <div class="nav-item" onclick="go('resources')">04. Where Everything Is</div>
+        </div>
+        <div class="nav-group">
+            <div class="nav-group-label">Doing the Work</div>
+            <div class="nav-item" onclick="go('howtowork')">05. How to Work, Submit &amp; Get Unstuck</div>
+        </div>
+        <div class="nav-group">
+            <div class="nav-group-label">Standards</div>
+            <div class="nav-item" onclick="go('rules')">06. Rules + Certificate</div>
+            <div class="nav-item" onclick="go('presentation')">07. Presentation Day</div>
+        </div>
+        <div class="nav-group">
+            <div class="nav-group-label">Visibility + Portfolio</div>
+            <div class="nav-item" onclick="go('sharing')">08. Sharing Your Work, NDA-Safe</div>
+            <div class="nav-item" onclick="go('close')">09. Final Reminder</div>
+        </div>
+    </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+    <!-- COVER -->
+    <div class="page-header">
+        <div class="ph-label">SkillAI Path &nbsp;·&nbsp; Kick-Off Guide</div>
+        <div class="ph-title">EduFin Investigation</div>
+        <div class="ph-sub">5-Day Business Investigation &nbsp;·&nbsp; Monday to Friday &nbsp;·&nbsp; Databricks Community Edition</div>
+        <div class="ph-positioning">This is not a tutorial track. This is a case-solving engagement.</div>
+        <div class="ph-chips">
+            <div class="ph-chip"><strong>Duration:</strong> 5 Days</div>
+            <div class="ph-chip"><strong>Schedule:</strong> Mon – Fri</div>
+            <div class="ph-chip"><strong>Platform:</strong> Databricks Community Edition</div>
+            <div class="ph-chip"><strong>Client:</strong> EduFin</div>
+            <div class="ph-chip"><strong>Format:</strong> Investigation · Submission · Review · Presentation</div>
+        </div>
+    </div>
+
+    <!-- 01 - What This Is & Why It's Different -->
+    <section class="section" id="what">
+        <h2><span class="sn">01</span> What This Is &amp; Why It's Different</h2>
+
+        <div class="box box-blue">
+            <strong>Who EduFin is:</strong> EduFin is our client, a lending business currently facing a portfolio crisis. Their board knows something is wrong and has asked us to investigate and quantify it.
+        </div>
+
+        <p>Think of this document as your first day on the job. <strong>You are the Analyst. I am your Lead.</strong> Together, we have to respond to EduFin with our findings by <strong>Friday, 7 PM</strong>. This guide is your instruction set for how we work through that engagement, day by day.</p>
+
+        <p>This is a 5-day business investigation. You are not here to watch a tutorial or copy answers. You are here to investigate a real business problem, make judgment calls, write queries, test assumptions, and explain what your analysis actually means.</p>
+        <p>The goal is reasoning, judgment, and decision direction, not output volume.</p>
+        <p>You will move through three investigation cases in this sequence:</p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 22px;">
+            <div style="background:linear-gradient(135deg,#eff6ff,#f8faff);border:1px solid #bfdbfe;border-top:3px solid #2563eb;border-radius:10px;padding:18px 20px;text-align:center;">
+                <div style="font-family:var(--mono);font-size:0.62em;color:var(--ink-muted);margin-bottom:6px;">FIRST</div>
+                <div style="font-size:1.05em;font-weight:800;color:#1e3a5f;">PH</div>
+                <div style="font-size:0.8em;color:#4b5563;margin-top:4px;">Portfolio Health</div>
+            </div>
+            <div style="background:linear-gradient(135deg,#fef2f2,#fff8f8);border:1px solid #fecaca;border-top:3px solid #dc2626;border-radius:10px;padding:18px 20px;text-align:center;">
+                <div style="font-family:var(--mono);font-size:0.62em;color:var(--ink-muted);margin-bottom:6px;">SECOND</div>
+                <div style="font-size:1.05em;font-weight:800;color:#1e3a5f;">CR</div>
+                <div style="font-size:0.8em;color:#4b5563;margin-top:4px;">Customer Risk</div>
+            </div>
+            <div style="background:linear-gradient(135deg,#f0fdf4,#f7fff9);border:1px solid #bbf7d0;border-top:3px solid #16a34a;border-radius:10px;padding:18px 20px;text-align:center;">
+                <div style="font-family:var(--mono);font-size:0.62em;color:var(--ink-muted);margin-bottom:6px;">THIRD</div>
+                <div style="font-size:1.05em;font-weight:800;color:#1e3a5f;">TA</div>
+                <div style="font-size:0.8em;color:#4b5563;margin-top:4px;">Time Analysis</div>
+            </div>
+        </div>
+
+        <h3>Why this feels different from normal SQL practice</h3>
+        <div class="reason-grid">
+            <div class="reason-card">
+                <div class="r-label">REASON 01</div>
+                <h4>No single right answer</h4>
+                <p>Two people can query the same data and reach different conclusions if their assumptions differ. What matters is the quality of your reasoning, not whether your output matches someone else's.</p>
+            </div>
+            <div class="reason-card">
+                <div class="r-label">REASON 02</div>
+                <h4>Ambiguity is intentional</h4>
+                <p>Some parts of this investigation will not have one clean answer. That is by design. Judgment is the skill being tested, not matching query output.</p>
+            </div>
+            <div class="reason-card">
+                <div class="r-label">REASON 03</div>
+                <h4>AI is allowed. Unexplained work is not.</h4>
+                <p>Use any AI tool you want. Every query you submit must be explainable: what it checks, why you wrote it, what you concluded. A query that runs is not automatically a correct answer.</p>
+            </div>
+        </div>
+        <div class="box box-blue" style="margin-top:4px;">
+            <strong>The distinction:</strong> Most SQL practice uses clean data with one right answer. This investigation puts you inside a real business problem and requires you to move, without perfect information.
+        </div>
+
+        <p style="color:#1e3a5f;font-weight:600;margin-top:18px;">Writing SQL is not the test here. Using it to understand what's actually happening in the business is.</p>
+    </section>
+
+    <!-- 02 - Before You Start -->
+    <section class="section" id="setup">
+        <h2><span class="sn">02</span> Before You Start</h2>
+
+        <div class="box box-red">
+            <strong>Your first job is not to understand all 3 cases.</strong><br>
+            Your first job is to get your environment ready, then run the first query, and submit your first PH progress on Day 1. The full startup sequence is in Section 03 (Monday).
+        </div>
+
+        <h3>Importing PH and the Case Study (Day 1)</h3>
+        <p>On Day 1, in this order:</p>
+        <ul class="checklist">
+            <li><div class="cn">01</div><span><strong>Download</strong> the PH and Case Study notebooks (<code>.dbc</code> files) from Graphy, then <strong>import</strong> both into Databricks</span></li>
+            <li><div class="cn">02</div><span><strong>Load the loans dataset</strong> into Databricks. This is what you'll use to solve PH</span></li>
+        </ul>
+        <div class="box box-amber" style="margin-top:4px;">
+            Use the Case Study only if you need a thinking reference, not to find answers.
+        </div>
+
+        <h3>What you'll find inside the PH notebook</h3>
+        <p>Once imported, the PH notebook is structured around a few clear headings. You don't need to memorize this. Just know what to expect when you open it:</p>
+        <ul class="checklist">
+            <li><div class="cn">01</div><span><strong>Your Mission:</strong> what you're being asked to investigate</span></li>
+            <li><div class="cn">02</div><span><strong>Current Situation:</strong> the business context behind the assignment</span></li>
+            <li><div class="cn">03</div><span><strong>Your Exact Task:</strong> what you're solving for, stated plainly</span></li>
+            <li><div class="cn">04</div><span><strong>Schema to Configure:</strong> the dataset/table you're working with</span></li>
+            <li><div class="cn">05</div><span><strong>Purpose:</strong> why this case matters to the investigation</span></li>
+            <li><div class="cn">06</div><span><strong>Deliverables:</strong> exactly what your submission must include</span></li>
+        </ul>
+        <div class="box box-blue" style="margin-top:4px;">
+            Each query inside the notebook (1A, 1B, 1C...) also comes with its own <strong>business purpose</strong>, <strong>what to calculate</strong>, and an <strong>expected insight</strong>. Read these before you write any SQL.
+        </div>
+
+        <h3>Support and contact</h3>
+        <div class="contact-strip">
+            <div class="contact-chip">🛠️ <strong>Setup &amp; case doubts</strong> <span>→ Graphy Community</span></div>
+            <div class="contact-chip">📢 <strong>Schedule &amp; announcements</strong> <span>→ WhatsApp only</span></div>
+            <div class="contact-chip">📞 <strong>Urgent blocking issues</strong> <span>→ DM or call +91 9685166369</span></div>
+        </div>
+
+        <div class="box box-amber" style="margin-top:4px;">
+            <strong>Support rule:</strong> Case and setup doubts → Graphy Community. Announcements and schedule → WhatsApp. Urgent blocking issues → DM or call.
+        </div>
+    </section>
+
+    <!-- 03 - Monday to Friday Flow -->
+    <section class="section" id="flow">
+        <h2><span class="sn">03</span> Monday to Friday Flow</h2>
+
+        <div class="box box-blue" style="margin-bottom:16px;">
+            <strong>Sequence:</strong> Cases unlock one at a time, in order, across the week. Each new case unlocks only after the previous one is submitted. This order is not optional.
+        </div>
+
+        <div class="day-cards">
+            <div class="dc-row">
+                <div class="dc-label"><span class="dc-day mon">Mon</span><span class="dc-badge mon">Kick-Off</span></div>
+                <div class="dc-content">
+                    <div class="dc-events">
+                        <div class="dc-event highlight">Kick-Off opens. PH unlocks. Start immediately. Don't wait for full clarity or read all three cases first.</div>
+                    </div>
+                    <ul class="checklist" style="margin-top:10px;">
+                        <li><div class="cn">1</div><span>Open <strong>Graphy</strong> → find SkillAIPath in Community</span></li>
+                        <li><div class="cn">2</div><span>Confirm <strong>Databricks is working</strong>. Run <code>SELECT 1 AS ready</code></span></li>
+                        <li><div class="cn">3</div><span><strong>Download</strong> the PH and Case Study notebooks (<code>.dbc</code>) and <strong>import</strong> them into Databricks</span></li>
+                        <li><div class="cn">4</div><span>Load the <strong>Day 1 loans dataset</strong> into Databricks. This is what you'll use to solve PH</span></li>
+                        <li><div class="cn">5</div><span>Run the first query in PH. Use the Case Study only if you need a thinking reference, not to find answers</span></li>
+                        <li><div class="cn">6</div><span><strong>Submit your first PH progress today</strong></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dc-row">
+                <div class="dc-label"><span class="dc-day tue">Tue</span><span class="dc-badge tue">Upgrade</span></div>
+                <div class="dc-content">
+                    <div class="dc-events">
+                        <div class="dc-event highlight">Your next case unlocks. Dataset scale is upgraded on Day 2. This isn't just another file drop. Data scope expands and earlier assumptions need re-verification. The ground shifts mid-way, which is how real investigations work.</div>
+                    </div>
+                    <div class="dc-event note" style="margin-top:10px;">Adapt based only on the instructions given to you on Day 2, nothing else. Details are revealed on Day 2, not before.</div>
+                </div>
+            </div>
+            <div class="dc-row">
+                <div class="dc-label"><span class="dc-day wed">Wed</span><span class="dc-badge wed">New Case</span></div>
+                <div class="dc-content">
+                    <div class="dc-events">
+                        <div class="dc-event highlight">A third case unlocks. All cases are now active.</div>
+                        <div class="dc-event">Finish your previous case if not yet submitted. Begin the new one only after that's in. Focus on depth, not speed.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="dc-row">
+                <div class="dc-label"><span class="dc-day thu">Thu</span><span class="dc-badge thu">Session</span></div>
+                <div class="dc-content">
+                    <div class="dc-events">
+                        <div class="dc-event highlight">Live Technical Session, open to all. Strongly recommended.</div>
+                        <div class="dc-event"><strong>Topic: What After EduFin? Modern Data Architectures.</strong></div>
+                        <div class="dc-event">Attend even if your work is incomplete. Continue your case work after the session. Thursday is not a rest day.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="dc-row">
+                <div class="dc-label"><span class="dc-day fri">Fri</span><span class="dc-badge fri">Review</span></div>
+                <div class="dc-content">
+                    <div class="dc-events">
+                        <div class="dc-event highlight">3 PM: Review window closes. All submissions must be in.</div>
+                        <div class="dc-event highlight">7 PM: Presentation, Review, and Pattern Reveal call.</div>
+                        <div class="dc-event">Live slots: first 3 strong completions only. Everyone else can join and watch.</div>
+                        <div class="dc-event note">No live slot? Submit a 3–5 minute video update. See Section 07.</div>
+                        <div class="dc-event note">Attendance on the Friday call is part of certificate consideration.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 - Where Everything Is -->
+    <section class="section" id="resources">
+        <h2><span class="sn">04</span> Where Everything Is</h2>
+
+        <a class="link-row" href="https://veereshgendle.graphy.com/l/vTZ0lar" target="_blank">
+            <span class="link-icon">🎓</span>
+            <div class="link-body">
+                <div class="link-label">Graphy · Investigation Platform</div>
+                <div class="link-url">veereshgendle.graphy.com/l/vTZ0lar</div>
+                <div class="link-desc">Find SkillAIPath in the Community section to access all course materials</div>
+            </div>
+            <span class="link-arrow">→</span>
+        </a>
+
+        <p style="margin-top:14px;">Use only the resources listed below, in the order they appear inside Graphy. If something isn't listed here, it isn't active for this investigation.</p>
+
+        <table class="folder-table">
+            <thead>
+                <tr><th>Resource</th><th>Folder in Graphy</th><th>Link</th><th>When you need it</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="folder-label">Platform Setup Guide</span></td><td>Databricks</td><td>(in Graphy folder)</td><td>Before Kick-Off: environment setup</td></tr>
+                <tr><td><span class="folder-label">Databricks Setup (video)</span></td><td>Databricks</td><td>(in Graphy folder)</td><td>Before Kick-Off: environment setup</td></tr>
+                <tr><td><span class="folder-label">Portfolio Health</span></td><td>Investigation</td><td>(in Graphy folder)</td><td>Download + import Day 1</td></tr>
+                <tr><td><span class="folder-label">PH Case Study</span></td><td>Investigation</td><td>(in Graphy folder)</td><td>Download + import Day 1: reference only if stuck on PH</td></tr>
+                <tr><td><span class="folder-label">loans</span></td><td>Dataset</td><td>(in Graphy folder)</td><td>Day 1: used to solve PH</td></tr>
+                <tr><td><span class="folder-label">EduFin_NewSource_Dataset</span></td><td>Dataset</td><td>(in Graphy folder)</td><td>Revealed Day 2, do not open early</td></tr>
+                <tr><td><span class="folder-label">KickOff doc</span></td><td>KickOff</td><td>(this document)</td><td>Reference all week</td></tr>
+                <tr><td><span class="folder-label">Submission Form (official only)</span></td><td>·</td><td><a href="https://forms.gle/5wn5P843cxDbx1tK6" target="_blank">forms.gle/5wn5P843cxDbx1tK6</a></td><td>Every case submission. Link provided directly, not in Graphy</td></tr>
+                <tr><td><span class="folder-label">FAQ</span></td><td>·</td><td><a href="https://skillaipath.com/edufin-faq" target="_blank">skillaipath.com/edufin-faq</a></td><td>Check before posting in community</td></tr>
+            </tbody>
+        </table>
+
+        <div class="box box-red" style="margin-top:10px;">
+            <strong>Stay focused on PH for now.</strong> Other cases will unlock later in the week, with their own instructions at the right time. Don't go looking for them early.
+        </div>
+    </section>
+
+    <!-- 05 - How to Work, Submit & Get Unstuck -->
+    <section class="section" id="howtowork">
+        <h2><span class="sn">05</span> How to Work, Submit &amp; Get Unstuck</h2>
+
+        <h3>How to work well</h3>
+        <p>Do not open the case and start writing queries immediately. Work through the problem in this order.</p>
+
+        <div class="step-list">
+            <div class="step-row"><div class="step-n">1</div><span class="step-text">Read the question carefully.</span></div>
+            <div class="step-row"><div class="step-n">2</div><span class="step-text">Identify what the business is really asking, not just what the query requires.</span></div>
+            <div class="step-row"><div class="step-n">3</div><span class="step-text">Decide which data points matter for this decision.</span></div>
+            <div class="step-row"><div class="step-n">4</div><span class="step-text">Write the query.</span></div>
+            <div class="step-row"><div class="step-n">5</div><span class="step-text">Check whether the result actually answers the business question, not just whether the query ran.</span></div>
+            <div class="step-row"><div class="step-n">6</div><span class="step-text">Note what changed in your thinking after seeing the result.</span></div>
+            <div class="step-row" style="background:linear-gradient(135deg,#f0fdf4,#fff);border-top:1px solid #e0e7ff;"><div class="step-n" style="background:linear-gradient(135deg,#16a34a,#2563eb);">↑</div><span class="step-text" style="color:#16a34a;font-weight:600;">Do not optimize for number of queries. Optimize for quality of reasoning.</span></div>
+        </div>
+
+        <div class="box box-blue">
+            <strong>Write your analysis for the decision-maker, not for the query editor.</strong> The person reading your submission is checking for judgment, not syntax.
+        </div>
+
+        <h3>What to submit</h3>
+        <p>Every submission must include:</p>
+
+        <ul>
+            <li>Your SQL queries</li>
+            <li>Your reasoning: why you wrote the query the way you did</li>
+            <li>What you expected before running it, and what you actually found</li>
+            <li>What is still unclear or unresolved</li>
+            <li>Your conclusion: what decision direction your analysis points to</li>
+        </ul>
+
+        <div class="box box-blue">
+            <strong>Submit through the official form only.</strong><br>
+            The submission form link is in Section 04 (Where Everything Is). It's shared with you directly, not located inside Graphy.
+        </div>
+
+        <div class="box box-red" style="margin-top:10px;">
+            <strong>WhatsApp messages are not submissions.</strong> Screenshots without reasoning are not submissions. Work outside the form will not be counted.
+        </div>
+
+        <h3>If you get stuck</h3>
+        <p>Follow this order before asking for help:</p>
+
+        <ul class="checklist">
+            <li><div class="cn">01</div><span>Check the <strong>Kick-Off Guide</strong> again. The answer is often already here</span></li>
+            <li><div class="cn">02</div><span>Check the <strong>edufin-faq</strong> page: <a href="https://skillaipath.com/edufin-faq" target="_blank">skillaipath.com/edufin-faq</a></span></li>
+            <li><div class="cn">03</div><span>Check <strong>Databricks Setup</strong> assets. Most environment errors are covered there</span></li>
+            <li><div class="cn">04</div><span>Re-read the <strong>case file</strong> from the beginning</span></li>
+            <li><div class="cn">05</div><span>Post in the <strong>Graphy Community</strong> with full context (see below)</span></li>
+        </ul>
+
+        <h3>How to ask for help</h3>
+        <p>Every request must include:</p>
+        <ul>
+            <li>Which case you're working on</li>
+            <li>Which query or step you are working on</li>
+            <li>What you tried</li>
+            <li>What result or error came up</li>
+            <li>What exactly is unclear</li>
+        </ul>
+
+        <div class="box box-amber">
+            <strong>Do not post "it's not working" without context.</strong> A message without these details cannot be answered usefully.
+        </div>
+    </section>
+
+    <!-- 06 - Rules + Certificate -->
+    <section class="section" id="rules">
+        <h2><span class="sn">06</span> Rules and Certificate Consideration</h2>
+
+        <div class="rules-grid">
+            <div class="rule-box">
+                <div class="rule-num">Allowed</div>
+                <h4>AI tools</h4>
+                <p>Use any AI tool. If you submit a query, you must be able to explain it. If you cannot, the submission does not count.</p>
+            </div>
+            <div class="rule-box">
+                <div class="rule-num">Allowed</div>
+                <h4>Rework and resubmission</h4>
+                <p>You may rework and resubmit any case. A stronger second submission replaces a weaker first one.</p>
+            </div>
+            <div class="rule-box">
+                <div class="rule-num">Allowed</div>
+                <h4>Discussion</h4>
+                <p>You may discuss approach and reasoning. You may not submit work that is not yours or that you cannot explain.</p>
+            </div>
+            <div class="rule-box">
+                <div class="rule-num">Not accepted</div>
+                <h4>Output without reasoning</h4>
+                <p>Work you cannot explain does not count. Disappearing without context during the investigation window is noted.</p>
+            </div>
+        </div>
+
+        <div class="cert-grid" style="margin-top:20px;">
+            <div class="cert-box green">
+                <h4>Counts toward certificate consideration</h4>
+                <ul>
+                    <li>Required submissions completed, with reasoning, following the case sequence</li>
+                    <li>Active, consistent participation through the investigation window</li>
+                    <li>Attendance on Friday review and presentation call</li>
+                </ul>
+            </div>
+            <div class="cert-box red">
+                <h4>Weakens certificate consideration</h4>
+                <ul>
+                    <li>Disappearing without context, or skipping the case sequence</li>
+                    <li>Output you can't explain, or work with no reasoning</li>
+                    <li>Missing the Friday call without prior context or notice</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="box box-blue" style="margin-top:14px;">
+            <strong>This is not a course completion badge.</strong> It reflects whether you worked through a real investigation with seriousness, and whether you can show the work was yours.
+        </div>
+    </section>
+
+    <!-- 07 - Presentation Day -->
+    <section class="section" id="presentation">
+        <h2><span class="sn">07</span> Presentation Day (Friday, 7 PM)</h2>
+        <p>The Friday 7 PM call is a live presentation, review, and pattern reveal.</p>
+
+        <div class="box box-blue">
+            <strong>Live slots are limited to the first 3 strong completions.</strong> To be considered: complete all three cases with full reasoning and be among the strongest submissions before Friday 3 PM.
+        </div>
+
+        <p>Everyone else can still join the call and watch. In addition, you submit a <strong>3 to 5 minute video update</strong> presented as if briefing your team lead and the client.</p>
+
+        <h3>Video update must cover</h3>
+        <ul>
+            <li>What case you worked on</li>
+            <li>What you were trying to understand</li>
+            <li>What changed after checking the data</li>
+            <li>What decision your analysis points to</li>
+            <li>What still needs improvement or further investigation</li>
+        </ul>
+
+        <div class="box box-amber">
+            <strong>The video is a business briefing, not a technical walkthrough.</strong> Speak to the finding, not to the query.
+        </div>
+        <div class="box box-blue" style="margin-top:10px;">
+            <strong>If asked to submit a video update,</strong> post it within the timeline shared on Friday.
+        </div>
+    </section>
+
+    <!-- 08 - Sharing Your Work, NDA-Safe -->
+    <section class="section" id="sharing">
+        <h2><span class="sn">08</span> Sharing Your Work, NDA-Safe</h2>
+        <p>One rule covers all external sharing: share the lesson, not the data. Share your thinking, not the case.</p>
+
+        <div class="li-two-col" style="margin-top:14px;">
+            <div class="li-col works">
+                <div class="li-col-title">Safe to share</div>
+                <ul>
+                    <li>Your reasoning process and what shifted during the investigation</li>
+                    <li>What you expected versus what you found</li>
+                    <li>One safe lesson: scale, joins, business logic, interpretation</li>
+                    <li>A workflow snapshot without private identifiers or sensitive numbers</li>
+                </ul>
+            </div>
+            <div class="li-col skip">
+                <div class="li-col-title">Do not share</div>
+                <ul>
+                    <li>Raw row-level data or private identifiers</li>
+                    <li>Sensitive business numbers from the dataset</li>
+                    <li>Full notebook exports or full case answers</li>
+                    <li>Internal case materials</li>
+                    <li>Public GitHub repos with case files or solution notebooks</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="box box-blue" style="margin-top:14px;">
+            You may name this as the EduFin Investigation. You may not share internal numbers, raw data, case files, full answers, or notebook exports.
+        </div>
+
+        <h3>LinkedIn</h3>
+        <p>A safe post communicates the experience and one concrete lesson, nothing else.</p>
+        <div class="li-post">
+            <div class="li-post-label">Sample Post</div>
+            Finished a 5-day SQL investigation through the EduFin Investigation, focused on portfolio health, customer risk, and time-based analysis.<br><br>
+            What changed my thinking most was Day 2. Once the dataset scale increased, assumptions that looked stable on Day 1 had to be checked again. Some joins and result patterns behaved differently at the new scale, which forced me to revisit conclusions I had already started trusting.<br><br>
+            Big lesson from this experience: a query running successfully is not the same as the analysis being decision-ready.<br><br>
+            That is the real difference between practicing SQL and using SQL to investigate a business problem.
+        </div>
+        <div class="box box-amber">
+            <strong>Notice what is absent:</strong> no data values, no internal client details, no case answers. The post communicates the experience, a thinking shift, and one concrete lesson, nothing else.
+        </div>
+
+        <h3>Portfolio</h3>
+        <p>Document your thinking and approach, not the case answers.</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-row"><div class="p-num">1</div><div><div class="p-label">Business Context</div><div class="p-desc">Type of organisation, problem category, and data type. No internal specifics.</div></div></div>
+            <div class="portfolio-row"><div class="p-num">2</div><div><div class="p-label">Investigation Goal</div><div class="p-desc">What the investigation was trying to understand, category of question, not specific numbers.</div></div></div>
+            <div class="portfolio-row"><div class="p-num">3</div><div><div class="p-label">My Approach</div><div class="p-desc">How you structured your queries, what you prioritised, and why.</div></div></div>
+            <div class="portfolio-row"><div class="p-num">4</div><div><div class="p-label">Key Findings</div><div class="p-desc">What the data pointed to, at the pattern level. Not raw numbers or private identifiers.</div></div></div>
+            <div class="portfolio-row"><div class="p-num">5</div><div><div class="p-label">What Changed After Re-checking</div><div class="p-desc">What shifted in your interpretation after the Day 2 dataset upgrade.</div></div></div>
+            <div class="portfolio-row"><div class="p-num">6</div><div><div class="p-label">Final Decision Direction</div><div class="p-desc">What your analysis pointed to as the right move or the right next question.</div></div></div>
+            <div class="portfolio-row"><div class="p-num">7</div><div><div class="p-label">Tools Used</div><div class="p-desc">Databricks, SQL, any supporting tools.</div></div></div>
+            <div class="portfolio-row"><div class="p-num">8</div><div><div class="p-label">What I Would Improve Next</div><div class="p-desc">Honest observations on limitations and where you'd go deeper.</div></div></div>
+        </div>
+
+        <div class="li-post" style="margin-top:20px;">
+            <div class="li-post-label">Portfolio Example</div>
+            <div style="margin-bottom:10px;"><strong>Sample Portfolio Entry Title:</strong> EduFin Investigation, SQL Business Case Analysis</div>
+            <div style="margin-bottom:14px;color:var(--ink-soft);line-height:1.8;">
+                <strong>Sample Portfolio Summary:</strong> Worked through a 5-day business investigation using SQL and Databricks to analyze portfolio health, customer risk, and time-based patterns in lending data.<br><br>
+                The investigation required writing queries, testing assumptions, re-checking conclusions after a dataset scale upgrade, and translating findings into business decision direction.
+            </div>
+            <div style="margin-bottom:14px;">
+                <div style="font-family:var(--mono);font-size:0.62em;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">Main areas covered</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                    <span style="background:var(--accent-lt);border:1px solid var(--accent-md);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:0.82em;font-weight:600;">Portfolio health analysis</span>
+                    <span style="background:var(--accent-lt);border:1px solid var(--accent-md);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:0.82em;font-weight:600;">Customer risk segmentation</span>
+                    <span style="background:var(--accent-lt);border:1px solid var(--accent-md);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:0.82em;font-weight:600;">Time-based behavioural analysis</span>
+                    <span style="background:var(--accent-lt);border:1px solid var(--accent-md);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:0.82em;font-weight:600;">Reasoning under ambiguity</span>
+                    <span style="background:var(--accent-lt);border:1px solid var(--accent-md);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:0.82em;font-weight:600;">SQL analysis in Databricks</span>
+                </div>
+            </div>
+            <div style="border-top:1px solid #e0e7ff;padding-top:12px;color:var(--ink-soft);font-size:0.88em;line-height:1.7;">
+                <strong>Key takeaway:</strong> The most important learning was that query output alone is not enough. The real skill is checking whether the output actually answers the business question.
+            </div>
+        </div>
+
+        <h3>GitHub</h3>
+        <div class="li-two-col" style="margin-top:10px;">
+            <div class="li-col works">
+                <div class="li-col-title">Allowed</div>
+                <ul>
+                    <li>Private notes or private repo with personal working files</li>
+                    <li>Portfolio writeup that documents thinking without exposing case materials</li>
+                </ul>
+                <div style="margin-top:14px;padding-top:12px;border-top:1px solid #bbf7d0;">
+                    <div style="font-family:var(--mono);font-size:0.62em;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Example</div>
+                    <div style="font-size:0.84em;color:var(--ink-soft);line-height:1.7;">
+                        <strong>Private repository with:</strong> notebooks used during investigation, personal notes, query drafts, and a portfolio summary draft.
+                        <div style="margin-top:10px;"><strong>Good private repo name:</strong><br><span style="font-family:var(--mono);font-size:0.93em;background:#f0fdf4;padding:2px 8px;border-radius:4px;">edufin-investigation-notes</span></div>
+                        <div style="margin-top:10px;"><strong>Good portfolio link description:</strong><br><em>Private SQL investigation project on lending data, focused on reasoning, business analysis, and decision-making in Databricks.</em></div>
+                    </div>
+                </div>
+            </div>
+            <div class="li-col skip">
+                <div class="li-col-title">Not allowed</div>
+                <ul>
+                    <li>Public repo with case files or datasets</li>
+                    <li>Public repo with full solution notebooks or internal materials</li>
+                </ul>
+                <div style="margin-top:14px;padding-top:12px;border-top:1px solid #fecaca;">
+                    <div style="font-family:var(--mono);font-size:0.62em;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Example</div>
+                    <div style="font-size:0.84em;color:var(--ink-soft);line-height:1.7;">
+                        <strong>Public repo with:</strong> case files provided, datasets, full solution notebooks, internal case materials, or raw outputs copied from the investigation.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box box-blue" style="margin-top:14px;">
+            Your portfolio should show how you think. Your GitHub should protect what was given to you.
+        </div>
+    </section>
+
+    <!-- 09 - Final Reminder -->
+    <div id="close" style="background:linear-gradient(135deg,#1e3a5f,#1d4ed8);border-radius:14px;padding:32px 36px;margin-bottom:20px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.07),transparent 70%);"></div>
+        <div style="font-family:var(--mono);font-size:0.62em;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#93c5fd;margin-bottom:14px;">09 · Final Reminder</div>
+        <p style="color:rgba(255,255,255,0.9);font-size:0.96em;line-height:1.8;margin-bottom:0;">
+            Open Graphy, confirm Databricks is working, import the PH notebook, and run your first query today. PH is your first move, and everything else follows from there.
+        </p>
+        <div style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.12);font-size:0.9em;color:#bfdbfe;font-style:italic;line-height:2;">
+            The point is not to prove that you can write SQL.<br>
+            The point is to prove that you can use SQL to understand what is happening.
+        </div>
+    </div>
+
+</main>
+</div>
+
+<footer>
+    <p><strong>© 2026 SkillAI Path. All Rights Reserved.</strong> &nbsp;·&nbsp; Created by Viresh Gendle &nbsp;·&nbsp; skillaipath.com/edufinsql &nbsp;·&nbsp; Licensed for educational use. Attribution required when sharing.</p>
+</footer>
+
+<script>
+    function go(id) {
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    }
+    window.addEventListener('scroll', () => {
+        let cur = '';
+        document.querySelectorAll('section.section, div[id]').forEach(s => {
+            if (window.pageYOffset >= s.offsetTop - 130) cur = s.id;
+        });
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.classList.remove('active');
+            if (cur && item.getAttribute('onclick')?.includes(cur)) item.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>

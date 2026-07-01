@@ -18,8 +18,7 @@ ALTER TABLE Malaria_stg_Permanent
 ALTER COLUMN Region NVARCHAR NOT NULL;
 
 =====Modify Column Name===
-ALTER TABLE Malaria_stg_Permanent
-RENAME COLUMN old_column_name TO new_column_name;
+EXEC sp_rename 'DimPopulation.ppulation_2024', 'population_2024', 'COLUMN';
 
 
 ===Discover Constraint Name==
